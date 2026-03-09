@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Білім және денсаулық жүйесі | Қазақ тілі 8-сынып</title>
+    <meta name="description"
+        content="Білім және денсаулық жүйесі тақырыбы бойынша Тыңдалым, Оқылым, Жазылым, Сөйлесім. Грамматикалық және лексикалық минимум." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .bil-hero {
+            background: linear-gradient(135deg, #134E4A 0%, #0D9488 40%, #059669 80%, #065F46 100%);
+            padding: 60px 0 50px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bil-hero::after {
+            content: '🎓 🏥 📚 💊 🏫 🩺';
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            font-size: 1.6rem;
+            opacity: 0.1;
+            letter-spacing: 20px;
+        }
+
+        .bil-hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 6px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .bil-hero h1 {
+            font-size: clamp(1.8rem, 4.5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .bil-hero h1 span {
+            color: #FCD34D;
+        }
+
+        .bil-hero p {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            max-width: 640px;
+            margin: 0 auto 28px;
+        }
+
+        .bil-hero-pills {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .hero-pill {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            transition: color 0.2s;
+        }
+
+        .back-btn:hover {
+            color: white;
+        }
+
+        .grammar-mini-section {
+            margin-bottom: 36px;
+        }
+
+        .grammar-mini-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+            color: #134E4A;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .grammar-mini-section h3 span {
+            background: #059669;
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .grammar-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 14px;
+        }
+
+        .grammar-card {
+            background: #F0FDF4;
+            border: 1px solid #D1FAE5;
+            border-radius: 12px;
+            padding: 18px;
+            border-left: 4px solid #059669;
+        }
+
+        .grammar-card h4 {
+            font-size: 0.95rem;
+            color: #065F46;
+            margin-bottom: 8px;
+        }
+
+        .grammar-card p,
+        .grammar-card li {
+            font-size: 0.9rem;
+            color: #374151;
+        }
+
+        .grammar-card ul {
+            padding-left: 16px;
+        }
+
+        .grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .grammar-table th {
+            background: #065F46;
+            color: white;
+            padding: 10px 14px;
+            text-align: left;
+        }
+
+        .grammar-table td {
+            padding: 9px 14px;
+            border-bottom: 1px solid #D1FAE5;
+        }
+
+        .grammar-table tr:nth-child(even) td {
+            background: #F0FDF4;
+        }
+
+        .grammar-table tr:hover td {
+            background: #DCFCE7;
+        }
+
+        .example-highlight {
+            background: #ECFDF5;
+            border-left: 4px solid #10B981;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .example-highlight b {
+            color: #065F46;
+        }
+
+        .vocab-mini-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 12px;
+        }
+
+        .vocab-mini-card {
+            background: white;
+            border: 1px solid #D1FAE5;
+            border-radius: 10px;
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .vocab-mini-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(5, 150, 105, 0.15);
+            border-color: #059669;
+        }
+
+        .vocab-mini-card .kk {
+            font-weight: 800;
+            color: #065F46;
+            font-size: 1rem;
+        }
+
+        .vocab-mini-card .ru {
+            font-size: 0.85rem;
+            color: #6B7280;
+        }
+
+        .vocab-mini-card.flip {
+            background: #059669;
+        }
+
+        .vocab-mini-card.flip .kk {
+            color: white;
+        }
+
+        .vocab-mini-card.flip .ru {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .active-nav {
+            color: #059669 !important;
+            font-weight: 800 !important;
+        }
+
+        .bak-page-section {
+            padding: 60px 0 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="kazakh-border-top"></div>
+
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <div class="logo">
+                <div class="logo-text"><strong></strong></div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Басты бет</a></li>
+                <li><a href="index.html#vocabulary">Сөздік</a></li>
+                <li><a href="index.html#reading">Оқылым</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle active-nav">Тақырыптар <i>▼</i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="ana-tili.html">Ана тілі</a></li>
+                        <li><a href="bukara.html">БАҚ</a></li>
+                        <li><a href="bilim.html" class="active-nav">Білім&amp;Денсаулық</a></li>
+                        <li><a href="economica.html">Экономика</a></li>
+                        <li><a href="mereke.html">Мерекелер</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#grammar">Грамматика</a></li>
+                <li><a href="index.html#exercises">Практика</a></li>
+                <li><a href="index.html#quiz">Тест</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-btn" aria-label="Түнгі режимді қосу">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="bil-hero">
+        <div class="container">
+            <a href="index.html" class="back-btn">← Басты бетке оралу</a>
+            <div class="bil-hero-badge">8-сынып | Қазақ тілі</div>
+            <h1>Білім және <span>денсаулық жүйесі</span></h1>
+            <p>Грамматикалық минимум, лексика және сөйлеу әрекетінің 4 түрін меңгеруге арналған кешенді интерактивті
+                тапсырмалар.</p>
+            <div class="bil-hero-pills">
+                <span class="hero-pill">📝 Грамматика</span>
+                <span class="hero-pill">📚 Лексика</span>
+                <span class="hero-pill">🎧 Тыңдалым</span>
+                <span class="hero-pill">📖 Оқылым</span>
+                <span class="hero-pill">✍️ Жазылым</span>
+                <span class="hero-pill">💬 Сөйлесім</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRAMMAR SECTION -->
+    <section style="background:#F0FDF4; padding: 60px 0 30px;">
+        <div class="container">
+            <div class="section-title-wrap" data-aos="fade-up">
+                <h2>Грамматикалық минимум <span class="badge badge-blue">Функционалды үлгі</span></h2>
+                <p>Тақырып бойынша 4 грамматикалық тақырып.</p>
+            </div>
+
+            <!-- 1. Тұйық етістік -->
+            <div class="grammar-mini-section" data-aos="fade-up">
+                <h3><span>1</span> Тұйық етістік (Инфинитив)</h3>
+                <div class="grammar-cards">
+                    <div class="grammar-card">
+                        <h4>Анықтамасы</h4>
+                        <p>Тұйық етістік — іс-әрекеттің атын білдіретін, жақ, шақ, сан жалғамайтын етістік формасы.</p>
+                        <p style="margin-top:8px">Сұрақтары: <b>не істеу? не қылу?</b></p>
+                    </div>
+                    <div class="grammar-card">
+                        <h4>Жұрнақтары</h4>
+                        <ul>
+                            <li><b>-у/-ю</b>: оқу, жазу, айту</li>
+                            <li><b>-мақ/-мек</b>: барылмақ, келмек</li>
+                            <li><b>-у керек</b>: оқу керек</li>
+                            <li><b>-у тиіс</b>: білу тиіс</li>
+                        </ul>
+                    </div>
+                    <div class="grammar-card">
+                        <h4>Денсаулық мысалдары</h4>
+                        <ul>
+                            <li>Дәрігерге бар<b>у</b> керек</li>
+                            <li>Дәрі іш<b>у</b> тиіс</li>
+                            <li>Спортпен айналыс<b>у</b> маңызды</li>
+                            <li>Сауықтыру орталығына бар<b>у</b></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. -уда/-уде жұрнақтары -->
+            <div class="grammar-mini-section" data-aos="fade-up">
+                <h3><span>2</span> -уда / -уде жұрнақтары (Предложный падеж действия)</h3>
+                <div class="grammar-cards">
+                    <div class="grammar-card">
+                        <h4>Мағынасы</h4>
+                        <p>Іс-әрекеттің процесін, жалғасып жатқандығын білдіреді. «В процессе ...ния» мағынасын береді.
+                        </p>
+                    </div>
+                    <div class="grammar-card">
+                        <h4>Үлгі: Тұйық ет. + -да/-де</h4>
+                        <ul>
+                            <li>оқу + да → <b>оқуда</b> (в учёбе/учится)</li>
+                            <li>емдеу + де → <b>емдеуде</b> (лечат)</li>
+                            <li>дамыту + да → <b>дамытуда</b></li>
+                            <li>жетілдіру + де → <b>жетілдіруде</b></li>
+                        </ul>
+                    </div>
+                    <div class="grammar-card">
+                        <h4>Мәтіндегі мысалдар</h4>
+                        <div class="example-highlight">
+                            <p>Қазақстан білімді <b>дамытуда</b>.</p>
+                            <p>Дәрігерлер науқасты <b>емдеуде</b>.</p>
+                            <p>Мектеп жүйесі өзгерістерді <b>қабылдауда</b>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Қос сөздер, біріккен сөздер -->
+            <div class="grammar-mini-section" data-aos="fade-up">
+                <h3><span>3</span> Қос сөздер және біріккен сөздер</h3>
+                <div style="overflow-x:auto; margin-bottom:16px;">
+                    <table class="grammar-table">
+                        <tr>
+                            <th>Түрі</th>
+                            <th>Анықтамасы</th>
+                            <th>Жазылуы</th>
+                            <th>Мысалдар</th>
+                        </tr>
+                        <tr>
+                            <td><b>Қос сөздер</b></td>
+                            <td>Екі сөздің қосылып жаңа мағына беруі</td>
+                            <td>Дефис арқылы немесе бөлек</td>
+                            <td>дәрі-дәрмек, сырқат-науқас, ана-бала</td>
+                        </tr>
+                        <tr>
+                            <td><b>Біріккен сөздер</b></td>
+                            <td>Екі сөздің бірігіп бір сөз жасауы</td>
+                            <td>Бірге жазылады</td>
+                            <td>денсаулық, мектепке дейін, медпункт</td>
+                        </tr>
+                        <tr>
+                            <td><b>Күрделі сөздер</b></td>
+                            <td>Бірнеше сөзден тұратын тұрақты тіркес</td>
+                            <td>Бөлек жазылады</td>
+                            <td>білім жүйесі, денсаулық сақтау, жалпы білім</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="grammar-cards">
+                    <div class="grammar-card">
+                        <h4>«Білім» тақырыбындағы қос/біріккен сөздер</h4>
+                        <ul>
+                            <li><b>мектепке дейінгі</b> — дошкольное</li>
+                            <li><b>жалпы білім беру</b> — общеобразовательное</li>
+                            <li><b>оқу-тәрбие</b> — учебно-воспитательное</li>
+                        </ul>
+                    </div>
+                    <div class="grammar-card">
+                        <h4>«Денсаулық» тақырыбындағы</h4>
+                        <ul>
+                            <li><b>дәрі-дәрмек</b> — лекарства</li>
+                            <li><b>сырқат-науқас</b> — болезни/недуги</li>
+                            <li><b>дәрігер-маман</b> — врач-специалист</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Құрмалас сөйлем -->
+            <div class="grammar-mini-section" data-aos="fade-up">
+                <h3><span>4</span> Құрмалас сөйлем (Сложное предложение)</h3>
+                <div class="grammar-cards">
+                    <div class="grammar-card">
+                        <h4>Салалас (ССП)</h4>
+                        <p>Тең дәрежелі жай сөйлемдер жалғаулықтармен байланысқан.</p>
+                        <div class="example-highlight">Мектеп дамыды, <b>және</b> оқушылар санырты артты.</div>
+                    </div>
+                    <div class="grammar-card">
+                        <h4>Сабақтас (СПП)</h4>
+                        <p>Бір жай сөйлем (бағыныңқы) екіншісіне бағынады.</p>
+                        <div class="example-highlight">Дәрігерге барсаң, тез жазыла<b>сың</b>.</div>
+                    </div>
+                    <div class="grammar-card">
+                        <h4>Аралас (ССК)</h4>
+                        <p>Үш және одан да көп жай сөйлемнен тұрады.</p>
+                        <div class="example-highlight">Мектеп жаңарды, оқулық жетілді, <b>сондықтан</b> сапа артты.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VOCABULARY -->
+    <section style="padding: 50px 0; background: white;">
+        <div class="container">
+            <div class="section-title-wrap" data-aos="fade-up">
+                <h2>Лексикалық минимум <span class="badge">Білім &amp; Денсаулық сөздігі</span></h2>
+                <p>Карточканы басып аударманы тексеріңіз.</p>
+            </div>
+            <div class="vocab-mini-grid" data-aos="fade-up" id="bilVocabGrid"></div>
+        </div>
+    </section>
+
+    <!-- 4 SKILLS TABS -->
+    <section class="bak-page-section">
+        <div class="container">
+            <div class="section-title-wrap" data-aos="fade-up">
+                <h2>Сөйлеу әрекетінің 4 түрі <span class="badge badge-orange">Интерактив</span></h2>
+                <p>Тыңдалым, Оқылым, Жазылым, Сөйлесім тапсырмаларын орындаңыз.</p>
+            </div>
+
+            <div class="anat-tabs" data-aos="zoom-in">
+                <button class="anat-tab-btn active" onclick="openBilTab('bil-tyndau', this)">🎧 Тыңдалым</button>
+                <button class="anat-tab-btn" onclick="openBilTab('bil-okylu', this)">📖 Оқылым</button>
+                <button class="anat-tab-btn" onclick="openBilTab('bil-zhazylym', this)">✍️ Жазылым</button>
+                <button class="anat-tab-btn" onclick="openBilTab('bil-soilesim', this)">💬 Сөйлесім</button>
+            </div>
+
+            <div class="anat-content" data-aos="fade-up" data-aos-delay="100">
+
+                <!-- ТЫҢДАЛЫМ -->
+                <div id="bil-tyndau" class="anat-pane">
+                    <div class="anat-pane-inner">
+                        <div class="anat-intro">
+                            <div class="anat-intro-icon">🎧</div>
+                            <div>
+                                <h3>Тыңдалым: «Білім және денсаулық жүйесі»</h3>
+                                <p>Басым сөздерді оқып, сұрақтарға жауап беріңіз.</p>
+                            </div>
+                        </div>
+
+                        <div class="anat-audio-block">
+                            <div class="anat-audio-label">📌 Басым сөздер (негізгі лексика):</div>
+                            <div class="anat-keywords" style="margin-top:12px;">
+                                <span class="kw-badge" style="background:linear-gradient(135deg,#065F46,#059669);">білім
+                                    жүйесі</span>
+                                <span class="kw-badge"
+                                    style="background:linear-gradient(135deg,#065F46,#059669);">денсаулық</span>
+                                <span class="kw-badge"
+                                    style="background:linear-gradient(135deg,#065F46,#059669);">мектеп</span>
+                                <span class="kw-badge"
+                                    style="background:linear-gradient(135deg,#065F46,#059669);">дәрігер</span>
+                                <span class="kw-badge"
+                                    style="background:linear-gradient(135deg,#065F46,#059669);">емхана</span>
+                                <span class="kw-badge"
+                                    style="background:linear-gradient(135deg,#065F46,#059669);">оқу</span>
+                                <span class="kw-badge"
+                                    style="background:linear-gradient(135deg,#065F46,#059669);">сауықтыру</span>
+                                <span class="kw-badge"
+                                    style="background:linear-gradient(135deg,#065F46,#059669);">профилактика</span>
+                                <span class="kw-badge"
+                                    style="background:linear-gradient(135deg,#065F46,#059669);">реформа</span>
+                                <span class="kw-badge"
+                                    style="background:linear-gradient(135deg,#065F46,#059669);">сапа</span>
+                            </div>
+                        </div>
+
+                        <div
+                            style="background:#F0FDF4; border-radius:12px; padding:20px; margin:20px 0; border-left:4px solid #059669;">
+                            <h4 style="margin-bottom:10px; color:#065F46;">📖 Мәтін: «Білім — болашақтың кілті»</h4>
+                            <p style="line-height:1.9; color:#1F2937;">Қазақстанда <b>білім жүйесі</b> үздіксіз
+                                дамытылуда. Мектепке дейінгі, жалпы орта, кәсіптік және жоғары білім — осы төрт деңгей
+                                мемлекет тарапынан қолдау тауып отыр. Сонымен қатар, <b>денсаулық сақтау жүйесі</b> де
+                                реформаланып, заманауи емханалар мен диагностикалық орталықтар ашылуда. Денсаулық — ең
+                                үлкен байлық, ал білім — оны сақтаудың кілті.</p>
+                        </div>
+
+                        <div class="anat-questions">
+                            <h4>🎯 Тыңдалым бойынша сұрақтар:</h4>
+                            <div class="anat-q-item">
+                                <p><strong>1.</strong> Қазақстандағы білім жүйесінің қанша деңгейі бар? Атаңыз.</p>
+                                <textarea id="btq1" class="anat-textarea"
+                                    placeholder="Жауабыңызды жазыңыз..."></textarea>
+                            </div>
+                            <div class="anat-q-item">
+                                <p><strong>2.</strong> Денсаулық сақтау жүйесінде қандай өзгерістер болуда?</p>
+                                <textarea id="btq2" class="anat-textarea"
+                                    placeholder="Жауабыңызды жазыңыз..."></textarea>
+                            </div>
+                            <div class="anat-q-item">
+                                <p><strong>3.</strong> «Денсаулық — ең үлкен байлық» деген тіркеске өз пікіріңізді
+                                    жазыңыз.</p>
+                                <textarea id="btq3" class="anat-textarea"
+                                    placeholder="Жауабыңызды жазыңыз..."></textarea>
+                            </div>
+                            <button class="btn btn-blue mt-15" onclick="checkBilTyndau()">Жауаптарды тексеру</button>
+                            <div id="btyndau-result" class="anat-result"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ОҚЫЛЫМ -->
+                <div id="bil-okylu" class="anat-pane" style="display:none;">
+                    <div class="anat-pane-inner">
+                        <div class="anat-intro">
+                            <div class="anat-intro-icon">📖</div>
+                            <div>
+                                <h3>Оқылым: «Білім және денсаулық жүйесі»</h3>
+                                <p>Мәтінді оқып, тапсырмаларды орындаңыз.</p>
+                            </div>
+                        </div>
+
+                        <div class="anat-text-block">
+                            <p><b>Білім</b> — ұлт дамуының негізі. Қазақстанда жыл сайын мыңдаған мектеп, колледж және
+                                университет түлектері қоғамға еңбек жолын бастайды. Мемлекет <b>«Болашақ»</b>
+                                бағдарламасы арқылы жастарды шетелде оқытуда. Ел ішінде де <b>Назарбаев Университеті</b>
+                                мен <b>Назарбаев Зияткерлік мектептері</b> білімнің жаңа стандартын белгілеп берді.</p>
+                            <p><b>Денсаулық сақтау</b> жүйесі де жаңарып келеді. Ауылдарда <b>фельдшерлік-акушерлік</b>
+                                пункттер, қалаларда заманауи <b>перинаталдық орталықтар</b> мен диагностикалық
+                                зертханалар ашылды. Профилактика бағытымен жүргізілетін вакцинация бағдарламалары
+                                жұқпалы аурулардың алдын алуда. Халық денсаулығын нығайту үшін <b>«Дені сау ұлт»</b>
+                                бағдарламасы іске асырылуда.</p>
+                            <p>Білім мен денсаулық — бір-бірімен тығыз байланысты. Сауатты адам өз денсаулығын дұрыс
+                                сақтай алады. Сондықтан осы екі жүйені бірге дамыту — мемлекеттің басты міндеті.</p>
+                        </div>
+
+                        <div class="anat-vocab-explain">
+                            <h4>📚 Жаңа сөздердің мағынасы:</h4>
+                            <div class="vocab-explain-grid">
+                                <div class="ve-item"><span class="ve-word">түлек</span> — выпускник</div>
+                                <div class="ve-item"><span class="ve-word">перинаталдық</span> — перинатальный</div>
+                                <div class="ve-item"><span class="ve-word">зертхана</span> — лаборатория</div>
+                                <div class="ve-item"><span class="ve-word">профилактика</span> — профилактика</div>
+                                <div class="ve-item"><span class="ve-word">вакцинация</span> — вакцинация</div>
+                                <div class="ve-item"><span class="ve-word">фельдшерлік</span> — фельдшерский</div>
+                                <div class="ve-item"><span class="ve-word">нығайту</span> — укреплять</div>
+                                <div class="ve-item"><span class="ve-word">іске асырылуда</span> — реализуется</div>
+                            </div>
+                        </div>
+
+                        <div class="anat-questions">
+                            <h4>📋 Азатжолмен жұмыс:</h4>
+                            <div class="anat-q-item">
+                                <p><strong>1-азатжол:</strong> «Болашақ» бағдарламасы бойынша не айтылған?</p>
+                                <textarea id="boq1" class="anat-textarea"
+                                    placeholder="1-азатжол бойынша жазыңыз..."></textarea>
+                            </div>
+                            <div class="anat-q-item">
+                                <p><strong>2-азатжол:</strong> Денсаулық сақтау жүйесінің жаңалықтарын түсіндіріңіз.</p>
+                                <textarea id="boq2" class="anat-textarea"
+                                    placeholder="2-азатжол бойынша жазыңыз..."></textarea>
+                            </div>
+                            <div class="anat-q-item">
+                                <p><strong>3-азатжол:</strong> Білім мен денсаулықтың байланысы туралы не айтылды?</p>
+                                <textarea id="boq3" class="anat-textarea"
+                                    placeholder="3-азатжол бойынша жазыңыз..."></textarea>
+                            </div>
+                            <button class="btn btn-green mt-15" onclick="checkBilOkylu()">Жауаптарды тексеру</button>
+                            <div id="bokylu-result" class="anat-result"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ЖАЗЫЛЫМ -->
+                <div id="bil-zhazylym" class="anat-pane" style="display:none;">
+                    <div class="anat-pane-inner">
+                        <div class="anat-intro">
+                            <div class="anat-intro-icon">✍️</div>
+                            <div>
+                                <h3>Жазылым: «Білім және денсаулық жүйесі»</h3>
+                                <p>Жазылым кітабы — сауатты жазу және өзін-өзі бақылау дағдыларын қалыптастыру.</p>
+                            </div>
+                        </div>
+
+                        <div class="anat-writing-tasks">
+                            <!-- 01: Шығарма -->
+                            <div class="writing-task-card" style="border-left-color:#059669;">
+                                <div class="wtc-num" style="color:#059669;">01</div>
+                                <div class="wtc-body">
+                                    <h4>Шығарма жазу</h4>
+                                    <p>«Денсаулық — ең үлкен байлық» тақырыбына <strong>80–100 сөз</strong> көлемінде
+                                        шығарма жазыңыз.</p>
+                                    <textarea id="bzhaz1" class="anat-textarea tall"
+                                        placeholder="Шығармаңызды жазыңыз..."></textarea>
+                                    <div class="word-counter">Сөздер саны: <span id="bzhaz1-count">0</span></div>
+                                </div>
+                            </div>
+
+                            <!-- 02: Тұйық етістік -->
+                            <div class="writing-task-card" style="border-left-color:#065F46;">
+                                <div class="wtc-num" style="color:#065F46;">02</div>
+                                <div class="wtc-body">
+                                    <h4>Тұйық етістік қолдану (-у керек / -у тиіс)</h4>
+                                    <p>Берілген сөздерден тұйық етістікті -у керек / -у тиіс үлгісімен сөйлем жасаңыз:
+                                    </p>
+                                    <div class="given-words">дамыту • сақтау • оқу • жетілдіру • емдеу</div>
+                                    <textarea id="bzhaz2" class="anat-textarea"
+                                        placeholder="Мысал: Білімді дамыту керек. / Денсаулықты сақтау тиіс."></textarea>
+                                </div>
+                            </div>
+
+                            <!-- 03: -уда/-уде -->
+                            <div class="writing-task-card" style="border-left-color:#10B981;">
+                                <div class="wtc-num" style="color:#10B981;">03</div>
+                                <div class="wtc-body">
+                                    <h4>-уда / -уде жұрнақтары: орын толтырыңыз</h4>
+                                    <p>Берілген етістіктен -уда/-уде жұрнақты форманы жасап жазыңыз:</p>
+                                    <div class="proverb-fill" style="margin-top:14px;">
+                                        <p>Мектеп жаңару → мектеп <input type="text" class="proverb-input" id="uda1"
+                                                placeholder="..."> (жаңаруда)</p>
+                                        <p>Дәрігер емдеу → дәрігер <input type="text" class="proverb-input" id="uda2"
+                                                placeholder="..."> (емдеуде)</p>
+                                        <p>Жүйе дамыту → жүйе <input type="text" class="proverb-input" id="uda3"
+                                                placeholder="..."> (дамытуда)</p>
+                                        <p>Ел сауықтыру → ел <input type="text" class="proverb-input" id="uda4"
+                                                placeholder="..."> (сауықтыруда)</p>
+                                    </div>
+                                    <button class="btn btn-orange mt-15" onclick="checkUda()">Тексеру</button>
+                                    <div id="uda-result" class="anat-result"></div>
+                                </div>
+                            </div>
+
+                            <!-- 04: Ортақ/Лингво сөздік -->
+                            <div class="writing-task-card" style="border-left-color:#0D9488;">
+                                <div class="wtc-num" style="color:#0D9488;">04</div>
+                                <div class="wtc-body">
+                                    <h4>«Ортақ сөздер» және Лингвомәдени сөздік</h4>
+                                    <p>Интернационализм сөздерге қазақша баламасын жазыңыз:</p>
+                                    <div class="proverb-fill" style="margin-top:14px;">
+                                        <p><b>медицина</b> → <input type="text" class="proverb-input" id="lingvo1"
+                                                placeholder="..."></p>
+                                        <p><b>диагноз</b> → <input type="text" class="proverb-input" id="lingvo2"
+                                                placeholder="..."></p>
+                                        <p><b>реформа</b> → <input type="text" class="proverb-input" id="lingvo3"
+                                                placeholder="..."></p>
+                                        <p><b>университет</b> → <input type="text" class="proverb-input" id="lingvo4"
+                                                placeholder="..."></p>
+                                    </div>
+                                    <button class="btn btn-green mt-15" onclick="checkLingvo()">Тексеру</button>
+                                    <div id="lingvo-result" class="anat-result"></div>
+                                </div>
+                            </div>
+
+                            <!-- 05: Құрмалас сөйлем -->
+                            <div class="writing-task-card" style="border-left-color:#134E4A;">
+                                <div class="wtc-num" style="color:#134E4A;">05</div>
+                                <div class="wtc-body">
+                                    <h4>Оқылым кітабы: Тілдік-коммуникативтік жаттығу</h4>
+                                    <p>Берілген сөздерді пайдаланып, <b>Құрмалас сөйлем</b> жасаңыз (Салалас немесе
+                                        Сабақтас):</p>
+                                    <div class="given-words">мектеп • дамыды • денсаулық • сақталды • сондықтан • сапа •
+                                        артты</div>
+                                    <textarea id="bzhaz3" class="anat-textarea"
+                                        placeholder="Мысал: Мектеп дамыды, сондықтан оқу сапасы артты."></textarea>
+                                    <button class="btn btn-blue mt-15" onclick="checkZhaz3()">Тексеру</button>
+                                    <div id="zhaz3-result" class="anat-result"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СӨЙЛЕСІМ -->
+                <div id="bil-soilesim" class="anat-pane" style="display:none;">
+                    <div class="anat-pane-inner">
+                        <div class="anat-intro">
+                            <div class="anat-intro-icon">💬</div>
+                            <div>
+                                <h3>Сөйлесім: «Білім және денсаулық жүйесі»</h3>
+                                <p>Репликалармен жұмыс — сөйлеу дағдысын жетілдіру тәсілі.</p>
+                            </div>
+                        </div>
+
+                        <div class="dialog-section">
+                            <h4>🎭 Диалог: «Болашақта кім боласың?»</h4>
+                            <p class="dialog-hint">Диалогты оқыңыз, репликаларды жатқа үйреніңіз. Серігіңізбен рөлге
+                                бөліңіз.</p>
+                            <div class="dialog-box">
+                                <div class="dialog-line student-a">
+                                    <div class="dialog-avatar">👦 Нұрлан:</div>
+                                    <div class="dialog-text">— Мектепті бітіргеннен кейін қайда оқымақсың?</div>
+                                </div>
+                                <div class="dialog-line student-b">
+                                    <div class="dialog-avatar">👧 Айгерім:</div>
+                                    <div class="dialog-text">— Медициналық университетке түскім келеді. Дәрігер болғым
+                                        бар.</div>
+                                </div>
+                                <div class="dialog-line student-a">
+                                    <div class="dialog-avatar">👦 Нұрлан:</div>
+                                    <div class="dialog-text">— Өте жақсы таңдау! Дәрігерлер елге өте қажет. Мен өзім IT
+                                        мамандығын таңдадым.</div>
+                                </div>
+                                <div class="dialog-line student-b">
+                                    <div class="dialog-avatar">👧 Айгерім:</div>
+                                    <div class="dialog-text">— Цифрлық денсаулық технологиялары дамып келеді ғой. Бізге
+                                        екеуіміз де керек болармыз!</div>
+                                </div>
+                                <div class="dialog-line student-a">
+                                    <div class="dialog-avatar">👦 Нұрлан:</div>
+                                    <div class="dialog-text">— Иә, білімді де, денсаулықты да дамыту — ортақ міндетіміз!
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="soilesim-tasks">
+                                <h4>🗣️ Сөйлесім тапсырмалары:</h4>
+                                <div class="soilesim-task">
+                                    <div class="st-num">1</div>
+                                    <div>
+                                        <strong>Жалғастырыңыз:</strong> Диалогты 2 реплика жалғастырыңыз.
+                                        <textarea id="bsoi1" class="anat-textarea"
+                                            placeholder="Айгерім: — ...&#10;Нұрлан: — ..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="soilesim-task">
+                                    <div class="st-num">2</div>
+                                    <div>
+                                        <strong>Пікіріңіз:</strong> «Болашақ мамандығымды неге таңдадым?» тақырыбына 5–7
+                                        сөйлем жазыңыз.
+                                        <textarea id="bsoi2" class="anat-textarea"
+                                            placeholder="Пікіріңізді жазыңыз..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="soilesim-task">
+                                    <div class="st-num">3</div>
+                                    <div>
+                                        <strong>Репликаларды жұптастырыңыз:</strong>
+                                        <div class="replica-match">
+                                            <div class="replica-col">
+                                                <div class="replica-item" id="br1" onclick="selectBilReplica('br1')">
+                                                    «Неге дәрігер болғыңыз келеді?»</div>
+                                                <div class="replica-item" id="br2" onclick="selectBilReplica('br2')">
+                                                    «Білім жүйесін қалай жақсартуға болады?»</div>
+                                                <div class="replica-item" id="br3" onclick="selectBilReplica('br3')">
+                                                    «Денсаулықты сақтаудың жолы?»</div>
+                                            </div>
+                                            <div class="replica-col">
+                                                <div class="replica-answer" id="bra1" onclick="matchBilReplica('bra1')">
+                                                    «Спорт пен дұрыс тамақтану арқылы.»</div>
+                                                <div class="replica-answer" id="bra2" onclick="matchBilReplica('bra2')">
+                                                    «Халыққа пайдалы болғым келеді.»</div>
+                                                <div class="replica-answer" id="bra3" onclick="matchBilReplica('bra3')">
+                                                    «Сапалы оқулық, мотивация және мамандарды даярлау арқылы.»</div>
+                                            </div>
+                                        </div>
+                                        <div id="breplica-result" class="anat-result"></div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-blue mt-15" onclick="checkBilSoilesim()">Барлығын
+                                    тексеру</button>
+                                <div id="bsoilesim-result" class="anat-result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="kazakh-border-bottom"></div>
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo"></div>
+            <p style="text-align:center; color:#718096; font-size:0.9rem;">
+                <a href="index.html" style="color:#059669; font-weight:700;">← Басты бетке оралу</a>
+                &nbsp;|&nbsp;
+                <a href="ana-tili.html" style="color:#3182CE; font-weight:700;">Ана тілі →</a>
+                &nbsp;|&nbsp;
+                <a href="bukara.html" style="color:#7C3AED; font-weight:700;">БАҚ →</a>
+            </p>
+            <p class="copyright"></p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+        // Dark mode
+        const themeBtn = document.getElementById('theme-toggle');
+        if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark'); themeBtn.textContent = '☀️'; }
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            const d = document.body.classList.contains('dark');
+            themeBtn.textContent = d ? '☀️' : '🌙';
+            localStorage.setItem('theme', d ? 'dark' : 'light');
+        });
+
+        // === VOCABULARY ===
+        const bilVocab = [
+            { kk: 'білім жүйесі', ru: 'система образования' },
+            { kk: 'мектеп', ru: 'школа' },
+            { kk: 'оқушы', ru: 'ученик' },
+            { kk: 'мұғалім', ru: 'учитель' },
+            { kk: 'бағдарлама', ru: 'программа/учебный план' },
+            { kk: 'түлек', ru: 'выпускник' },
+            { kk: 'денсаулық', ru: 'здоровье' },
+            { kk: 'дәрігер', ru: 'врач/доктор' },
+            { kk: 'емхана', ru: 'поликлиника' },
+            { kk: 'аурухана', ru: 'больница' },
+            { kk: 'дәрі-дәрмек', ru: 'лекарства' },
+            { kk: 'сауықтыру', ru: 'оздоровление' },
+            { kk: 'профилактика', ru: 'профилактика' },
+            { kk: 'вакцинация', ru: 'вакцинация' },
+            { kk: 'реформа', ru: 'реформа' },
+            { kk: 'зертхана', ru: 'лаборатория' },
+            { kk: 'диагноз', ru: 'диагноз' },
+            { kk: 'нығайту', ru: 'укреплять' },
+            { kk: 'жетілдіру', ru: 'совершенствовать' },
+            { kk: 'тегін', ru: 'бесплатно' },
+        ];
+        const grid = document.getElementById('bilVocabGrid');
+        bilVocab.forEach(w => {
+            const c = document.createElement('div');
+            c.className = 'vocab-mini-card';
+            c.innerHTML = `<div class="kk">${w.kk}</div><div class="ru">${w.ru}</div>`;
+            c.addEventListener('click', () => c.classList.toggle('flip'));
+            grid.appendChild(c);
+        });
+
+        // === TABS ===
+        function openBilTab(id, btn) {
+            document.querySelectorAll('.anat-pane').forEach(p => p.style.display = 'none');
+            document.querySelectorAll('.anat-tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).style.display = 'block';
+            btn.classList.add('active');
+        }
+
+        // Word counter
+        document.getElementById('bzhaz1').addEventListener('input', function () {
+            const words = this.value.trim().split(/\s+/).filter(w => w.length > 0);
+            document.getElementById('bzhaz1-count').textContent = words.length;
+        });
+
+        // === RESULT HELPER ===
+        function showRes(el, type, msg) {
+            el.textContent = msg;
+            el.className = `anat-result ${type} show`;
+        }
+
+        // === CHECK FUNCTIONS ===
+        function checkBilTyndau() {
+            const res = document.getElementById('btyndau-result');
+            const q1 = document.getElementById('btq1').value.trim();
+            const q2 = document.getElementById('btq2').value.trim();
+            const q3 = document.getElementById('btq3').value.trim();
+            if (!q1 || !q2 || !q3) { showRes(res, 'warning', '⚠️ Барлық сұрақтарға жауап беріңіз!'); return; }
+            const total = (q1 + ' ' + q2 + ' ' + q3).split(/\s+/).length;
+            if (total < 15) { showRes(res, 'warning', '📝 Жауаптарыңызды толығырақ жазыңыз.'); return; }
+            showRes(res, 'success', '✅ Жарайсыз! Тыңдалым тапсырмасы орындалды!');
+        }
+
+        function checkBilOkylu() {
+            const res = document.getElementById('bokylu-result');
+            const q1 = document.getElementById('boq1').value.trim();
+            const q2 = document.getElementById('boq2').value.trim();
+            const q3 = document.getElementById('boq3').value.trim();
+            if (!q1 || !q2 || !q3) { showRes(res, 'warning', '⚠️ Барлық азатжолдарға жауап беріңіз!'); return; }
+            showRes(res, 'success', '✅ Өте жақсы! Мәтінді мұқият талдадыңыз!');
+        }
+
+        function checkUda() {
+            const res = document.getElementById('uda-result');
+            const ans = {
+                uda1: ['жаңаруда'],
+                uda2: ['емдеуде'],
+                uda3: ['дамытуда'],
+                uda4: ['сауықтыруда']
+            };
+            let c = 0;
+            Object.keys(ans).forEach(id => {
+                const v = document.getElementById(id).value.trim().toLowerCase();
+                if (ans[id].some(a => v.includes(a.toLowerCase()))) c++;
+            });
+            if (c === 4) showRes(res, 'success', '🏆 Керемет! 4/4 дұрыс!');
+            else showRes(res, 'warning', `📝 ${c}/4 дұрыс. Дұрыс жауаптар: жаңаруда, емдеуде, дамытуда, сауықтыруда`);
+        }
+
+        function checkLingvo() {
+            const res = document.getElementById('lingvo-result');
+            const ans = {
+                lingvo1: ['медицина', 'дәрігерлік', 'медициналық'],
+                lingvo2: ['диагноз', 'аурудың белгісі'],
+                lingvo3: ['реформа', 'өзгеріс'],
+                lingvo4: ['университет', 'жоғары оқу орны']
+            };
+            let c = 0;
+            Object.keys(ans).forEach(id => {
+                const v = document.getElementById(id).value.trim().toLowerCase();
+                if (ans[id].some(a => v.includes(a.toLowerCase()))) c++;
+            });
+            if (c >= 3) showRes(res, 'success', `🏆 ${c}/4 дұрыс! Баламалар: медицина/дәрігерлік, диагноз/ауру белгісі, өзгеріс/реформа, жоғары оқу орны`);
+            else showRes(res, 'warning', `📝 ${c}/4 дұрыс. Баламалар: медицина, диагноз, реформа, жоғары оқу орны`);
+        }
+
+        function checkZhaz3() {
+            const res = document.getElementById('zhaz3-result');
+            const v = document.getElementById('bzhaz3').value.trim();
+            if (!v || v.split(/\s+/).length < 5) { showRes(res, 'warning', '⚠️ Кемінде бір толық сөйлем жазыңыз.'); return; }
+            showRes(res, 'success', '✅ Жарайсыз! Құрмалас сөйлем дұрыс жасалды!');
+        }
+
+        // Replica matching
+        let bilSelected = null;
+        const bilCorrect = { 'br1': 'bra2', 'br2': 'bra3', 'br3': 'bra1' };
+        const bilMatches = {};
+
+        function selectBilReplica(id) {
+            document.querySelectorAll('#bil-soilesim .replica-item').forEach(el => el.classList.remove('selected'));
+            bilSelected = id;
+            document.getElementById(id).classList.add('selected');
+        }
+
+        function matchBilReplica(answerId) {
+            if (!bilSelected) {
+                const r = document.getElementById('breplica-result');
+                showRes(r, 'warning', '⚠️ Алдымен сол жақтан реплика таңдаңыз!');
+                return;
+            }
+            bilMatches[bilSelected] = answerId;
+            document.getElementById(answerId).classList.add('matched');
+            document.getElementById(bilSelected).classList.remove('selected');
+            bilSelected = null;
+            document.getElementById('breplica-result').style.display = 'none';
+        }
+
+        function checkBilSoilesim() {
+            const res = document.getElementById('bsoilesim-result');
+            const s1 = document.getElementById('bsoi1').value.trim();
+            const s2 = document.getElementById('bsoi2').value.trim();
+            let score = 0, fb = [];
+            if (s1.length > 20) score++; else fb.push('1-тапсырма: диалогты жалғастырыңыз');
+            if (s2.length > 30) score++; else fb.push('2-тапсырма: пікіріңізді кеңірек жазыңыз');
+            let pairs = 0;
+            Object.entries(bilMatches).forEach(([q, a]) => { if (bilCorrect[q] === a) pairs++; });
+            if (pairs === 3) score++; else fb.push(`3-тапсырма: ${pairs}/3 жұп дұрыс`);
+            if (score === 3) showRes(res, 'success', '🏆 Керемет! Сөйлесім дағдысын жетік меңгердіңіз!');
+            else showRes(res, 'warning', `📝 ${score}/3 орындалды. ${fb.join(' | ')}`);
+        }
+    </script>
+</body>
+
+</html>

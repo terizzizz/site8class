@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ана тілі – асыл қазына | Қазақ тілі 8-сынып</title>
+    <meta name="description"
+        content="Сөйлеу әрекетінің 4 түрі: Тыңдалым, Оқылым, Жазылым, Сөйлесім. «Ана тілі – асыл қазына» тақырыбы бойынша интерактивті тапсырмалар." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Page-specific hero for Ana Tili */
+        .anat-hero {
+            background: linear-gradient(135deg, #1A365D 0%, #2B6CB0 50%, #2C7A7B 100%);
+            padding: 60px 0 50px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .anat-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('border1.png');
+            background-repeat: repeat-x;
+            background-size: auto 60px;
+            background-position: bottom;
+            opacity: 0.15;
+        }
+
+        .anat-hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 6px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .anat-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 900;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .anat-hero h1 span {
+            color: #FBD38D;
+        }
+
+        .anat-hero p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto 28px;
+        }
+
+        .anat-hero-pills {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .hero-pill {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            transition: color 0.2s;
+        }
+
+        .back-btn:hover {
+            color: white;
+        }
+
+        .anat-page-section {
+            padding: 60px 0 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- TOP KAZAKH BORDER -->
+    <div class="kazakh-border-top"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <div class="logo">
+                <div class="logo-text">
+                    <strong></strong>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Басты бет</a></li>
+                <li><a href="index.html#vocabulary">Сөздік</a></li>
+                <li><a href="index.html#reading">Оқылым</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle active-nav">Тақырыптар <i>▼</i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="ana-tili.html" class="active-nav">Ана тілі</a></li>
+                        <li><a href="bukara.html">БАҚ</a></li>
+                        <li><a href="bilim.html">Білім&amp;Денсаулық</a></li>
+                        <li><a href="economica.html">Экономика</a></li>
+                        <li><a href="mereke.html">Мерекелер</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#grammar">Грамматика</a></li>
+                <li><a href="index.html#exercises">Практика</a></li>
+                <li><a href="index.html#quiz">Тест</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-btn" aria-label="Түнгі режимді қосу">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <div class="anat-hero">
+        <div class="container">
+            <a href="index.html" class="back-btn">← Басты бетке оралу</a>
+            <div class="anat-hero-badge">8-сынып | Қазақ тілі</div>
+            <h1>Ана тілі – <span>асыл қазына</span></h1>
+            <p>Сөйлеу әрекетінің 4 түрін меңгеруге арналған кешенді интерактивті тапсырмалар жиынтығы.</p>
+            <div class="anat-hero-pills">
+                <span class="hero-pill">🎧 Тыңдалым</span>
+                <span class="hero-pill">📖 Оқылым</span>
+                <span class="hero-pill">✍️ Жазылым</span>
+                <span class="hero-pill">💬 Сөйлесім</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <section class="anat-page-section">
+        <div class="container">
+
+            <!-- 4 дағды табтары -->
+            <div class="anat-tabs" data-aos="zoom-in">
+                <button class="anat-tab-btn active" onclick="openAnatTab('anat-tyndau', this)">🎧 Тыңдалым</button>
+                <button class="anat-tab-btn" onclick="openAnatTab('anat-okylu', this)">📖 Оқылым</button>
+                <button class="anat-tab-btn" onclick="openAnatTab('anat-zhazylym', this)">✍️ Жазылым</button>
+                <button class="anat-tab-btn" onclick="openAnatTab('anat-soilesim', this)">💬 Сөйлесім</button>
+            </div>
+
+            <div class="anat-content" data-aos="fade-up" data-aos-delay="100">
+
+                <!-- 1. ТЫҢДАЛЫМ -->
+                <div id="anat-tyndau" class="anat-pane active">
+                    <div class="anat-pane-inner">
+                        <div class="anat-intro">
+                            <div class="anat-intro-icon">🎧</div>
+                            <div>
+                                <h3>Тыңдалым: «Ана тілі – асыл қазына»</h3>
+                                <p>Мәтіндегі басым сөздерді тыңдап, сұрақтарға жауап беріңіз.</p>
+                            </div>
+                        </div>
+
+                        <div class="anat-audio-block">
+                            <div class="anat-audio-label">🔊 Мәтінді тыңдаңыз:</div>
+                            <div class="audio-player-mock" style="max-width: 420px;">
+                                <audio id="anatAudio" preload="metadata">
+                                    <source src="ana-tili-xalyqtyn-ru_aQqbyzrM.m4a" type="audio/mp4">
+                                </audio>
+                                <button class="play-btn" id="anatPlayBtn" onclick="toggleAnatAudio()">▶</button>
+                                <div class="audio-track" id="anatTrack" onclick="seekAnatAudio(event)">
+                                    <div class="audio-progress" id="anatProgress" style="width:0%"></div>
+                                </div>
+                                <span class="audio-time" id="anatTime">00:00 / 00:00</span>
+                            </div>
+                            <div class="anat-basym-words">
+                                <h4>📌 Басым сөздер (Ключевые слова):</h4>
+                                <div class="anat-keywords">
+                                    <span class="kw-badge">ана тілі</span>
+                                    <span class="kw-badge">асыл қазына</span>
+                                    <span class="kw-badge">мәдениет</span>
+                                    <span class="kw-badge">ұлттық</span>
+                                    <span class="kw-badge">ұрпақ</span>
+                                    <span class="kw-badge">сақтау</span>
+                                    <span class="kw-badge">дамыту</span>
+                                    <span class="kw-badge">тәрбие</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="anat-questions">
+                            <h4>🎯 Тыңдалым бойынша сұрақтар:</h4>
+                            <div class="anat-q-item">
+                                <p><strong>1.</strong> Ана тілі неліктен «асыл қазына» деп аталады?</p>
+                                <textarea id="tq1" class="anat-textarea"
+                                    placeholder="Жауабыңызды осында жазыңыз..."></textarea>
+                            </div>
+                            <div class="anat-q-item">
+                                <p><strong>2.</strong> Тілді сақтамасақ не болады?</p>
+                                <textarea id="tq2" class="anat-textarea"
+                                    placeholder="Жауабыңызды осында жазыңыз..."></textarea>
+                            </div>
+                            <div class="anat-q-item">
+                                <p><strong>3.</strong> Ана тілін дамытуда жастардың рөлі қандай?</p>
+                                <textarea id="tq3" class="anat-textarea"
+                                    placeholder="Жауабыңызды осында жазыңыз..."></textarea>
+                            </div>
+                            <button class="btn btn-blue mt-15" onclick="checkAnatTyndau()">Жауаптарды тексеру</button>
+                            <div id="tyndau-result" class="anat-result"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. ОҚЫЛЫМ -->
+                <div id="anat-okylu" class="anat-pane" style="display:none;">
+                    <div class="anat-pane-inner">
+                        <div class="anat-intro">
+                            <div class="anat-intro-icon">📖</div>
+                            <div>
+                                <h3>Оқылым: «Ана тілі – асыл қазына»</h3>
+                                <p>Мәтінді мұқият оқып, тапсырмаларды орындаңыз.</p>
+                            </div>
+                        </div>
+
+                        <div class="anat-text-block">
+                            <p>Ана тілі – халықтың рухани байлығы, ұлттың ажырамас бөлігі. Ол – ата-бабаларымыздың бізге
+                                қалдырған ең <b>асыл қазынасы</b>. Тіл арқылы ғана халық өзінің тарихын, салт-дәстүрін,
+                                мәдениетін ұрпақтан ұрпаққа жеткізе алады.</p>
+                            <p>Академик Ахмет Байтұрсынұлы «Тіл – халықтың жаны» деп бекер айтпаған. Шынында да, тілі
+                                жоғалған халықтың болашағы не болады? Тіл жоғалса – мәдениет жоғалады, мәдениет жоғалса
+                                – ұлт жоғалады.</p>
+                            <p>Бүгінгі таңда қазақ тілін дамыту – мемлекеттік маңызды міндет. Девиз: «Өзге тілдің бәрін
+                                біл, өз тіліңді ұмытпа!» – бұл тек сөз емес, өмір бағдарламасы. Жас ұрпақ ана тілін
+                                терең меңгеріп, оны күнделікті өмірде, ғылымда, мәдениетте кеңінен қолдануы тиіс.</p>
+                        </div>
+
+                        <div class="anat-vocab-explain">
+                            <h4>📚 Жаңа сөздердің мағынасы:</h4>
+                            <div class="vocab-explain-grid">
+                                <div class="ve-item"><span class="ve-word">асыл қазына</span> — бесценное сокровище
+                                </div>
+                                <div class="ve-item"><span class="ve-word">рухани байлық</span> — духовное богатство
+                                </div>
+                                <div class="ve-item"><span class="ve-word">ажырамас бөлік</span> — неотъемлемая часть
+                                </div>
+                                <div class="ve-item"><span class="ve-word">ата-баба</span> — предки</div>
+                                <div class="ve-item"><span class="ve-word">ұрпақтан ұрпаққа</span> — из поколения в
+                                    поколение</div>
+                                <div class="ve-item"><span class="ve-word">өмір бағдарламасы</span> — жизненная
+                                    программа/ориентир</div>
+                            </div>
+                        </div>
+
+                        <div class="anat-questions">
+                            <h4>📋 Азатжолмен жұмыс (работа с абзацами):</h4>
+                            <div class="anat-q-item">
+                                <p><strong>1-азатжол:</strong> Ана тілін «асыл қазына» деп кім атаған және бұл не
+                                    дегенді білдіреді?</p>
+                                <textarea id="oq1" class="anat-textarea"
+                                    placeholder="1-азатжол бойынша жазыңыз..."></textarea>
+                            </div>
+                            <div class="anat-q-item">
+                                <p><strong>2-азатжол:</strong> «Тіл – халықтың жаны» деген сөзді өз сөзіңізбен
+                                    түсіндіріңіз.</p>
+                                <textarea id="oq2" class="anat-textarea"
+                                    placeholder="2-азатжол бойынша жазыңыз..."></textarea>
+                            </div>
+                            <div class="anat-q-item">
+                                <p><strong>3-азатжол:</strong> «Өзге тілдің бәрін біл, өз тіліңді ұмытпа!» деген девизді
+                                    түсіндіріңіз.</p>
+                                <textarea id="oq3" class="anat-textarea"
+                                    placeholder="3-азатжол бойынша жазыңыз..."></textarea>
+                            </div>
+                            <button class="btn btn-green mt-15" onclick="checkAnatOkylu()">Жауаптарды тексеру</button>
+                            <div id="okylu-result" class="anat-result"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. ЖАЗЫЛЫМ -->
+                <div id="anat-zhazylym" class="anat-pane" style="display:none;">
+                    <div class="anat-pane-inner">
+                        <div class="anat-intro">
+                            <div class="anat-intro-icon">✍️</div>
+                            <div>
+                                <h3>Жазылым: «Ана тілі – асыл қазына»</h3>
+                                <p>Жазу дағдыларын дамытуға арналған коммуникативтік тапсырмалар.</p>
+                            </div>
+                        </div>
+
+                        <div class="anat-writing-tasks">
+                            <div class="writing-task-card">
+                                <div class="wtc-num">01</div>
+                                <div class="wtc-body">
+                                    <h4>Шығарма жазу</h4>
+                                    <p>«Менің ана тілім – менің байлығым» тақырыбына <strong>80–100 сөз</strong>
+                                        көлемінде шығарма жазыңыз.</p>
+                                    <textarea id="zhaz1" class="anat-textarea tall"
+                                        placeholder="Шығармаңызды осында жазыңыз..."></textarea>
+                                    <div class="word-counter">Сөздер саны: <span id="zhaz1-count">0</span></div>
+                                </div>
+                            </div>
+                            <div class="writing-task-card">
+                                <div class="wtc-num">02</div>
+                                <div class="wtc-body">
+                                    <h4>Сөйлем құрастыру</h4>
+                                    <p>Берілген сөздерді пайдаланып, мағыналы сөйлемдер жазыңыз:</p>
+                                    <div class="given-words">ана тілі • мәдениет • ұрпақ • қазына • дамыту</div>
+                                    <textarea id="zhaz2" class="anat-textarea"
+                                        placeholder="Сөйлемдеріңізді жазыңыз..."></textarea>
+                                </div>
+                            </div>
+                            <div class="writing-task-card">
+                                <div class="wtc-num">03</div>
+                                <div class="wtc-body">
+                                    <h4>Мақал-мәтелдер</h4>
+                                    <p>Ана тілге байланысты мақал-мәтелдерді аяқтаңыз:</p>
+                                    <div class="proverb-fill">
+                                        <p>🔸 «Өзге тілдің бәрін біл, <input type="text" class="proverb-input"
+                                                id="prov1" placeholder="...">»</p>
+                                        <p>🔸 «Тіл – халықтың <input type="text" class="proverb-input" id="prov2"
+                                                placeholder="...">»</p>
+                                        <p>🔸 «Ана тілі – ана <input type="text" class="proverb-input" id="prov3"
+                                                placeholder="...">»</p>
+                                    </div>
+                                    <button class="btn btn-orange mt-15" onclick="checkAnatProverbs()">Тексеру</button>
+                                    <div id="prov-result" class="anat-result"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. СӨЙЛЕСІМ -->
+                <div id="anat-soilesim" class="anat-pane" style="display:none;">
+                    <div class="anat-pane-inner">
+                        <div class="anat-intro">
+                            <div class="anat-intro-icon">💬</div>
+                            <div>
+                                <h3>Сөйлесім: «Ана тілі – асыл қазына»</h3>
+                                <p>Репликалармен жұмыс – диалог арқылы сөйлеу дағдысын жетілдіру.</p>
+                            </div>
+                        </div>
+
+                        <div class="dialog-section">
+                            <h4>🎭 Диалог: «Ана тілі туралы пікірталас»</h4>
+                            <p class="dialog-hint">Төмендегі диалогты оқыңыз, репликаларды жатқа үйреніңіз. Рөлге
+                                бөліндіңіз.</p>
+
+                            <div class="dialog-box">
+                                <div class="dialog-line student-a">
+                                    <div class="dialog-avatar">👦 Арман:</div>
+                                    <div class="dialog-text">— Сен неге қазақша аз сөйлейсің? Ана тілімізді ұмытып
+                                        барамыз ғой!</div>
+                                </div>
+                                <div class="dialog-line student-b">
+                                    <div class="dialog-avatar">👧 Айгерім:</div>
+                                    <div class="dialog-text">— Мен ұмытқан жоқпын, бірақ орта орысша болғандықтан
+                                        машықтанатын жерім аз.</div>
+                                </div>
+                                <div class="dialog-line student-a">
+                                    <div class="dialog-avatar">👦 Арман:</div>
+                                    <div class="dialog-text">— Ана тілін үйде де, достарыңмен де қолданса болады. Мәселе
+                                        — тілекте.</div>
+                                </div>
+                                <div class="dialog-line student-b">
+                                    <div class="dialog-avatar">👧 Айгерім:</div>
+                                    <div class="dialog-text">— Дұрыс айтасың. Ана тіліміз — асыл қазынамыз, оны
+                                        бағалауымыз керек!</div>
+                                </div>
+                            </div>
+
+                            <div class="soilesim-tasks">
+                                <h4>🗣️ Сөйлесім тапсырмалары:</h4>
+                                <div class="soilesim-task">
+                                    <div class="st-num">1</div>
+                                    <div>
+                                        <strong>Жалғастырыңыз:</strong> Диалогты 2 реплика жалғастырып, жазыңыз.
+                                        <textarea id="soi1" class="anat-textarea"
+                                            placeholder="Арман: — ...&#10;Айгерім: — ..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="soilesim-task">
+                                    <div class="st-num">2</div>
+                                    <div>
+                                        <strong>Өзіңіздің пікіріңіз:</strong> «Ана тілімді неліктен сүйемін?» деген
+                                        тақырыпқа 5–7 сөйлем айтыңыз.
+                                        <textarea id="soi2" class="anat-textarea"
+                                            placeholder="Пікіріңізді жазыңыз..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="soilesim-task">
+                                    <div class="st-num">3</div>
+                                    <div>
+                                        <strong>Репликаларды жұптастырыңыз:</strong>
+                                        <div class="replica-match">
+                                            <div class="replica-col">
+                                                <div class="replica-item" id="r1" onclick="selectReplica('r1')">«Ана
+                                                    тілің қай тіл?»</div>
+                                                <div class="replica-item" id="r2" onclick="selectReplica('r2')">«Тілге
+                                                    деген көзқарасың қандай?»</div>
+                                                <div class="replica-item" id="r3" onclick="selectReplica('r3')">«Неге
+                                                    қазақша сөйлемейсің?»</div>
+                                            </div>
+                                            <div class="replica-col">
+                                                <div class="replica-answer" id="ra1"
+                                                    onclick="matchReplica('ra1', 'r2')">«Тіл – халықтың жаны, оны
+                                                    қадірлеу керек.»</div>
+                                                <div class="replica-answer" id="ra2"
+                                                    onclick="matchReplica('ra2', 'r1')">«Анам тілі – қазақ тілі, ол
+                                                    менің жүрегімде.»</div>
+                                                <div class="replica-answer" id="ra3"
+                                                    onclick="matchReplica('ra3', 'r3')">«Сөйлесетін орта болса, сөйлер
+                                                    едім.»</div>
+                                            </div>
+                                        </div>
+                                        <div id="replica-result" class="anat-result"></div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-blue mt-15" onclick="checkAnatSoilesim()">Барлығын
+                                    тексеру</button>
+                                <div id="soilesim-result" class="anat-result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BOTTOM KAZAKH BORDER -->
+    <div class="kazakh-border-bottom"></div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-logo-text"></div>
+                    <p>Қазақ тілі | 8-сынып</p>
+                </div>
+                <p style="text-align:center; color: #718096; font-size: 0.9rem;">
+                    <a href="index.html" style="color:#3182CE; font-weight:700;">← Басты бетке оралу</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+        // Dark Mode
+        const themeBtn = document.getElementById('theme-toggle');
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark');
+            themeBtn.textContent = '☀️';
+        }
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            themeBtn.textContent = isDark ? '☀️' : '🌙';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // === АНА ТІЛІ ФУНКЦИЯЛАРЫ ===
+
+        function openAnatTab(tabId, btn) {
+            document.querySelectorAll('.anat-pane').forEach(p => p.style.display = 'none');
+            document.querySelectorAll('.anat-tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).style.display = 'block';
+            btn.classList.add('active');
+        }
+
+        // Уақытты форматтау
+        function formatTime(s) {
+            if (isNaN(s) || s === Infinity) return '00:00';
+            let m = Math.floor(s / 60), sec = Math.floor(s % 60);
+            return (m < 10 ? '0' + m : m) + ':' + (sec < 10 ? '0' + sec : sec);
+        }
+
+        // Аудио ойнатқыш
+        let anatAudioObj = null, anatPlaying = false;
+
+        function toggleAnatAudio() {
+            const playBtn = document.getElementById('anatPlayBtn');
+            if (!anatAudioObj) {
+                anatAudioObj = document.getElementById('anatAudio');
+                anatAudioObj.addEventListener('timeupdate', () => {
+                    const prog = document.getElementById('anatProgress');
+                    const time = document.getElementById('anatTime');
+                    if (!isNaN(anatAudioObj.duration)) {
+                        prog.style.width = (anatAudioObj.currentTime / anatAudioObj.duration * 100) + '%';
+                        time.textContent = formatTime(anatAudioObj.currentTime) + ' / ' + formatTime(anatAudioObj.duration);
+                    }
+                });
+                anatAudioObj.addEventListener('ended', () => {
+                    anatPlaying = false;
+                    playBtn.textContent = '▶';
+                    anatAudioObj.currentTime = 0;
+                });
+            }
+            if (anatPlaying) {
+                anatAudioObj.pause(); anatPlaying = false; playBtn.textContent = '▶';
+            } else {
+                anatAudioObj.play(); anatPlaying = true; playBtn.textContent = '⏸';
+            }
+        }
+
+        function seekAnatAudio(e) {
+            if (!anatAudioObj) return;
+            const track = document.getElementById('anatTrack');
+            const rect = track.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            if (!isNaN(anatAudioObj.duration)) anatAudioObj.currentTime = percent * anatAudioObj.duration;
+        }
+
+        // Сөздер санауышы
+        document.addEventListener('DOMContentLoaded', () => {
+            const zhaz1 = document.getElementById('zhaz1');
+            if (zhaz1) {
+                zhaz1.addEventListener('input', () => {
+                    const words = zhaz1.value.trim().split(/\s+/).filter(w => w.length > 0);
+                    document.getElementById('zhaz1-count').textContent = words.length;
+                });
+            }
+        });
+
+        // Тыңдалым тексеру
+        function checkAnatTyndau() {
+            const res = document.getElementById('tyndau-result');
+            const q1 = document.getElementById('tq1').value.trim();
+            const q2 = document.getElementById('tq2').value.trim();
+            const q3 = document.getElementById('tq3').value.trim();
+            if (!q1 || !q2 || !q3) { showAnatResult(res, 'warning', '⚠️ Барлық сұрақтарға жауап беріңіз!'); return; }
+            const total = (q1 + ' ' + q2 + ' ' + q3).split(/\s+/).length;
+            if (total < 15) { showAnatResult(res, 'warning', '📝 Жауаптарыңызды толығырақ жазыңыз (кемінде 5 сөз).'); return; }
+            showAnatResult(res, 'success', '✅ Жарайсыз! Тыңдалым тапсырмасы сақталды. Ойларыңыз нақты жазылған!');
+        }
+
+        // Оқылым тексеру
+        function checkAnatOkylu() {
+            const res = document.getElementById('okylu-result');
+            const q1 = document.getElementById('oq1').value.trim();
+            const q2 = document.getElementById('oq2').value.trim();
+            const q3 = document.getElementById('oq3').value.trim();
+            if (!q1 || !q2 || !q3) { showAnatResult(res, 'warning', '⚠️ Барлық азатжолдарға жауап беріңіз!'); return; }
+            showAnatResult(res, 'success', '✅ Өте жақсы! Мәтінді мұқият оқып, азатжолдарды дұрыс талдадыңыз!');
+        }
+
+        // Мақал-мәтел тексеру
+        function checkAnatProverbs() {
+            const res = document.getElementById('prov-result');
+            const p1 = document.getElementById('prov1').value.trim().toLowerCase();
+            const p2 = document.getElementById('prov2').value.trim().toLowerCase();
+            const p3 = document.getElementById('prov3').value.trim().toLowerCase();
+            let correct = 0;
+            if (['өз тіліңді ұмытпа', 'ұмытпа'].some(a => p1.includes(a))) correct++;
+            if (['жаны', 'халықтың жаны'].some(a => p2.includes(a))) correct++;
+            if (['сүті', 'анасының сүті', 'ана сүті'].some(a => p3.includes(a))) correct++;
+            if (correct === 3) {
+                showAnatResult(res, 'success', '🏆 Керемет! Барлық 3 мақал-мәтел дұрыс аяқталды!');
+            } else if (correct > 0) {
+                showAnatResult(res, 'warning', `📝 ${correct}/3 дұрыс. Дұрыс жауаптар: 1) «...өз тіліңді ұмытпа!» | 2) «...жаны» | 3) «...сүті»`);
+            } else {
+                showAnatResult(res, 'warning', '❌ Дұрыс жауаптар: 1) «...өз тіліңді ұмытпа!» | 2) «...жаны» | 3) «...сүті»');
+            }
+        }
+
+        // Репликаларды жұптастыру
+        let selectedReplica = null;
+        const correctPairs = { 'r1': 'ra2', 'r2': 'ra1', 'r3': 'ra3' };
+        const userMatches = {};
+
+        function selectReplica(id) {
+            document.querySelectorAll('.replica-item').forEach(el => el.classList.remove('selected'));
+            selectedReplica = id;
+            document.getElementById(id).classList.add('selected');
+        }
+
+        function matchReplica(answerId) {
+            if (!selectedReplica) {
+                document.getElementById('replica-result').textContent = '⚠️ Алдымен сол жақтан реплика таңдаңыз!';
+                document.getElementById('replica-result').className = 'anat-result warning show';
+                return;
+            }
+            userMatches[selectedReplica] = answerId;
+            document.getElementById(answerId).classList.add('matched');
+            document.getElementById(selectedReplica).classList.remove('selected');
+            selectedReplica = null;
+            document.getElementById('replica-result').style.display = 'none';
+        }
+
+        // Сөйлесім тексеру
+        function checkAnatSoilesim() {
+            const res = document.getElementById('soilesim-result');
+            const soi1 = document.getElementById('soi1').value.trim();
+            const soi2 = document.getElementById('soi2').value.trim();
+            let score = 0, feedback = [];
+            if (soi1.length > 20) score++; else feedback.push('1-тапсырма: Диалогты жалғастырыңыз');
+            if (soi2.length > 30) score++; else feedback.push('2-тапсырма: Пікіріңізді кеңірек жазыңыз');
+            let pairScore = 0;
+            for (const [q, a] of Object.entries(userMatches)) {
+                if (correctPairs[q] === a) pairScore++;
+            }
+            if (pairScore === 3) score++; else feedback.push(`3-тапсырма: ${pairScore}/3 жұп дұрыс`);
+            if (score === 3) {
+                showAnatResult(res, 'success', '🏆 Керемет! Сөйлесім дағдысын жетік меңгердіңіз!');
+            } else {
+                showAnatResult(res, 'warning', `📝 ${score}/3 тапсырма орындалды. ${feedback.filter(f => f).join(' | ')}`);
+            }
+        }
+
+        function showAnatResult(el, type, msg) {
+            el.textContent = msg;
+            el.className = `anat-result ${type} show`;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,533 @@
+﻿<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Қазақ тілі | 8-сыныпқа арналған электронды оқулық</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- БОРДЮР С КАЗАХСКИМ ОРНАМЕНТОМ (Топ) -->
+    <div class="kazakh-border-top"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <div class="logo">
+                <div class="logo-text">
+                    <strong></strong>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#vocabulary">Сөздік</a></li>
+                <li><a href="#reading">Оқылым</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Тақырыптар <i>▼</i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="ana-tili.html">Ана тілі</a></li>
+                        <li><a href="bukara.html">БАҚ</a></li>
+                        <li><a href="bilim.html">Білім&amp;Денсаулық</a></li>
+                        <li><a href="economica.html">Экономика</a></li>
+                        <li><a href="mereke.html">Мерекелер</a></li>
+                    </ul>
+                </li>
+                <li><a href="#grammar">Грамматика</a></li>
+                <li><a href="#exercises">Практика</a></li>
+                <li><a href="#quiz">Тест</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-btn" aria-label="Түнгі режимді қосу">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+                <div class="badge-new">Жаңартылған бағдарлама 2026</div>
+                <h1 class="hero-title">Қазақ тілін тереңдетіп<br><span>меңгерту курсы</span></h1>
+                <p class="hero-subtitle">
+                    8-сынып оқушыларына арналған кешенді платформа. Күрделі грамматика, ҰБТ/ОЖСБ деңгейіндегі мәтіндер,
+                    лексикалық минимум және интерактивті жаттығулар жинағы.
+                </p>
+                <div class="hero-features">
+                    <div class="hf-item"><span class="hf-icon">📚</span> 500+ жаңа лексика</div>
+                    <div class="hf-item"><span class="hf-icon">🧠</span> Күрделі синтаксис</div>
+                    <div class="hf-item"><span class="hf-icon">🎯</span> Интерактивті тесттер</div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#reading" class="btn btn-green btn-large">Оқуды бастау</a>
+                    <a href="#grammar" class="btn btn-blue btn-large">Ережелер</a>
+                </div>
+            </div>
+            <div class="hero-illustration" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <img src="hero.png" alt="Оқушылар" class="hero-img">
+            </div>
+        </div>
+
+        <!-- ВОЛНА -->
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C320,120 420,-40 720,60 C1020,160 1120,0 1440,60 L1440,120 L0,120 Z" fill="#F8FBFC">
+                </path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- 1. ТЕМАТИЧЕСКИЙ ВОКАБУЛЯР (Лексический минимум 8 класса) -->
+    <section class="section" id="vocabulary">
+        <div class="container">
+            <div class="section-title-wrap" data-aos="fade-up">
+                <h2>Тақырыптық сөздік <span class="badge">Лексика</span></h2>
+                <p>Курс барысында кездесетін негізгі терминдер мен күрделі сөздер. Аудармасын көру үшін карточканы
+                    басыңыз.</p>
+            </div>
+
+            <div class="vocab-controls">
+                <div class="search-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="vocabSearch" placeholder="Сөзді іздеу..." class="vocab-search"
+                        oninput="searchVocab(this.value)">
+                </div>
+                <!-- Категории словаря -->
+                <div class="vocab-categories">
+                    <button class="cat-btn active" onclick="filterVocab('all')">Барлығы</button>
+                    <button class="cat-btn" onclick="filterVocab('history')">Тарих және Тұлғалар</button>
+                    <button class="cat-btn" onclick="filterVocab('eco')">Экология</button>
+                    <button class="cat-btn" onclick="filterVocab('tech')">Ғылым және Технология</button>
+                    <button class="cat-btn" onclick="filterVocab('society')">Қоғам және Құндылық</button>
+                </div>
+            </div>
+
+            <div class="vocab-grid" id="vocabGrid">
+                <!-- Сгенерировано через JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. МӘТІНМЕН ЖҰМЫС (Тексты и чтение) -->
+    <section class="section bg-light" id="reading">
+        <div class="container">
+            <div class="section-title-wrap" data-aos="fade-up">
+                <h2>Оқылым және Тыңдалым <span class="badge badge-orange">Мәтін</span></h2>
+                <p>Мәтіндерді оқып, талдау жасау. 8-сынып бағдарламасындағы өзекті тақырыптар.</p>
+            </div>
+
+            <div class="reading-module" data-aos="fade-up" data-aos-delay="200">
+                <div class="reading-sidebar">
+                    <h3>Мәтіндер:</h3>
+                    <ul class="reading-list">
+                        <li class="active" onclick="switchText(1)">1. Алаш орда қайраткерлері</li>
+                        <li onclick="switchText(2)">2. Арал теңізінің экологиялық мәселесі</li>
+                        <li onclick="switchText(3)">3. Жасанды интеллекттің болашағы</li>
+                        <li onclick="switchText(4)">4. Ұлттық құндылықтар және жастар</li>
+                        <li onclick="switchText(5)">5. Интернетке тәуелділік</li>
+                    </ul>
+                </div>
+
+                <div class="reading-content" id="readingContent">
+                    <div class="reading-header">
+                        <h3>Алаш орда қайраткерлері және ұлттық мүдде</h3>
+                        <div class="audio-player-mock">
+                            <audio id="realAudio" src="audio_alash.m4a" preload="metadata"></audio>
+                            <button class="play-btn" id="playAudioBtn" onclick="toggleAudio()">▶</button>
+                            <div class="audio-track" id="audioTrack" onclick="seekAudio(event)">
+                                <div class="audio-progress" id="audioProgress" style="width: 0%;"></div>
+                            </div>
+                            <span class="audio-time" id="audioTime">00:00 / 00:00</span>
+                        </div>
+                    </div>
+                    <div class="text-body" id="textBody">
+                        <p>ХХ ғасырдың басында қазақ даласында <b>«Алаш» қозғалысы</b> дүниеге келді. Бұл қозғалыстың
+                            басында Әлихан Бөкейханов, Ахмет Байтұрсынұлы, Міржақып Дулатұлы сияқты ұлт зиялылары тұрды.
+                        </p>
+                        <p>Олардың басты мақсаты — қазақ елінің тәуелсіздігін алу, білім мен ғылымды дамыту, ұлттық
+                            салт-дәстүрді сақтап қалу болды. Алаш қайраткерлері халықтың көзін ашу үшін «Қазақ» газетін
+                            шығарды, мектептер ашып, оқулықтар жазды.</p>
+                        <p>Бүгінгі тәуелсіз Қазақстан — сол Алаш азаматтарының арманының орындалғаны. Сондықтан біз
+                            олардың еңбегін ешқашан ұмытпауымыз керек.</p>
+                    </div>
+                    <div class="text-tasks">
+                        <h4>Мәтін бойынша тапсырма:</h4>
+                        <p><i>Күрделі сөздер:</i> қайраткер (деятель), тәуелсіздік (независимость), зиялылар
+                            (интеллигенция), мүдде (интерес/цель).</p>
+                        <p><i>Сұрақ:</i> Алаш зиялыларының басты мақсаты қандай болды?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. ГРАММАТИКА (8-сынып күрделі бағдарламасы) -->
+    <section class="section" id="grammar">
+        <div class="container">
+            <div class="section-title-wrap" data-aos="fade-up">
+                <h2>Синтаксис және Морфология <span class="badge badge-blue">8-сынып</span></h2>
+                <p>Құрмалас сөйлем құрылымы, есімше мен көсемше, төл сөз ережелері.</p>
+            </div>
+
+            <div class="grammar-tabs" data-aos="zoom-in" data-aos-delay="100">
+                <button class="tab-btn active" onclick="openTab('tab-complex')">Құрмалас сөйлем (Сложные
+                    предложения)</button>
+                <button class="tab-btn" onclick="openTab('tab-participles')">Есімше және Көсемше (Причастие и
+                    Деепричастие)</button>
+                <button class="tab-btn" onclick="openTab('tab-speech')">Төл сөз (Прямая речь)</button>
+                <button class="tab-btn" onclick="openTab('tab-shylau')">Шылау (Служебные слова)</button>
+            </div>
+
+            <div class="grammar-content" data-aos="fade-up" data-aos-delay="200">
+                <!-- Вкладка 1: Құрмалас сөйлем -->
+                <div id="tab-complex" class="tab-pane active">
+                    <h3>Құрмалас сөйлем (Сложные предложения)</h3>
+                    <p class="tab-desc">Сложное предложение состоит из двух и более простых предложений. Делятся на три
+                        вида: Салалас (ССП), Сабақтас (СПП), Аралас (ССК).</p>
+                    <div class="grammar-table-wrap">
+                        <table class="grammar-table">
+                            <tr>
+                                <th>Түрі (Вид)</th>
+                                <th>Анықтамасы (Определение)</th>
+                                <th>Жалғаулық шылаулар (Союзы) / Формасы</th>
+                                <th>Мысал (Пример)</th>
+                            </tr>
+                            <tr>
+                                <td><b>Салалас</b><br>(Сложносочиненное)</td>
+                                <td>Простые предложения равноправны, независимы друг от друга.</td>
+                                <td>және, мен/пен, бірақ, өйткені, немесе</td>
+                                <td>Күн жылынды, <b>және</b> қар ери бастады. <i>(Потеплело, и снег начал таять.)</i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Сабақтас</b><br>(Сложноподчиненное)</td>
+                                <td>Одно предложение (придаточное - бағыныңқы) подчиняется другому (главному - басым).
+                                </td>
+                                <td>-са/-се, -қандықтан, -ғанмен, -а/-е/-й, -ып/-іп</td>
+                                <td>Күн жылын<b>са</b>, қар ери бастайды. <i>(Если потеплеет, снег начнет таять.)</i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Аралас</b><br>(Смешанное)</td>
+                                <td>Состоит из трех и более простых, где есть и сочинительная, и подчинительная связи.
+                                </td>
+                                <td>Аралас байланыс</td>
+                                <td>Жаз шығып, күн жылынды <b>да</b>, балалар далаға ойнауға шықты.</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Вкладка 2: Есімше / Көсемше -->
+                <div id="tab-participles" class="tab-pane" style="display:none;">
+                    <h3>Есімше және Көсемше (Причастие и Деепричастие)</h3>
+                    <p class="tab-desc">Особые глагольные формы. <b>Есімше</b> совмещает свойства глагола и
+                        прилагательного (Какой? Что делающий?). <b>Көсемше</b> совмещает свойства глагола и наречия
+                        (Как? Каким образом? Что делая?).</p>
+
+                    <div class="grammar-split">
+                        <div class="grammar-box">
+                            <h4 class="color-blue">Есімше (Причастие)</h4>
+                            <p><b>Жұрнақтары:</b> -ған/-ген, -қан/-кен, -атын/-етін, -йтын/-йтін, -мақ/-мек, -пақ/-пек.
+                            </p>
+                            <ul>
+                                <li>Оқыл<b>ған</b> кітап (Прочитанная книга)</li>
+                                <li>Келе<b>тін</b> қонақ (Приходящий гость)</li>
+                                <li>Айтыл<b>мақ</b> сөз (Слово, которое должно быть сказано)</li>
+                            </ul>
+                        </div>
+                        <div class="grammar-box">
+                            <h4 class="color-green">Көсемше (Деепричастие)</h4>
+                            <p><b>Жұрнақтары:</b> -а/-е/-й, -ып/-іп/-п, -ғалы/-гелі, -қалы/-келі, -май/-мей, -пай/-пей.
+                            </p>
+                            <ul>
+                                <li>Күлі<b>п</b> сөйледі (Говорил(а) смеясь)</li>
+                                <li>Жаңбыр жау<b>а</b> бастады (Дождь начал идти)</li>
+                                <li>Көр<b>мей</b> қалдым (Не заметил / Оставшись не увидев)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Вкладка 3: Төл сөз -->
+                <div id="tab-speech" class="tab-pane" style="display:none;">
+                    <h3>Төл сөз және Төлеу сөз (Прямая и косвенная речь)</h3>
+                    <p class="tab-desc"><b>Төл сөз (Прямая речь)</b> – чужая речь, переданная без изменений. <b>Автор
+                            сөзі</b> – слова автора, сопровождающие прямую речь. <b>Төлеу сөз (Косвенная речь)</b> –
+                        чужая речь, переданная с изменением лица (от третьего лица).</p>
+
+                    <div class="example-box">
+                        <h4 style="color:#D47E00; margin-bottom:10px;">Сызбалар (Схемы пунктуации):</h4>
+                        <div class="schema-row">
+                            <span class="schema-code">А: – Т. </span>
+                            <span class="schema-text">Мұғалім айтты: – Ертең емтихан болады.</span>
+                        </div>
+                        <div class="schema-row">
+                            <span class="schema-code">«Т», – а. </span>
+                            <span class="schema-text">«Ертең емтихан болады», – деді мұғалім.</span>
+                        </div>
+                        <div class="schema-row">
+                            <span class="schema-code">«Т, – а, – т».</span>
+                            <span class="schema-text">«Балалар, – деді мұғалім, – ертең емтихан болады».</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Вкладка 4: Шылау -->
+                <div id="tab-shylau" class="tab-pane" style="display:none;">
+                    <h3>Шылаулар (Служебные слова)</h3>
+                    <p class="tab-desc">Служебные слова не имеют лексического значения. Делятся на 3 вида:</p>
+
+                    <div class="grammar-split">
+                        <div class="grammar-box">
+                            <h4 class="color-blue">Жалғаулық (Союзы)</h4>
+                            <p>Связывают однородные члены или простые предложения.</p>
+                            <ul>
+                                <li>Ыңғайлас: <b>мен, және, әрі</b></li>
+                                <li>Қарсылықты: <b>бірақ, алайда</b></li>
+                                <li>Себеп-салдар: <b>өйткені, себебі</b></li>
+                            </ul>
+                        </div>
+                        <div class="grammar-box">
+                            <h4 class="color-green">Септеулік (Послелоги)</h4>
+                            <p>Сочетаются с существительными в определенных падежах.</p>
+                            <ul>
+                                <li><b>үшін, арқылы, туралы, сайын</b></li>
+                                <li><b>дейін, шейін, қарай, таман</b></li>
+                                <li><b>кейін, соң, гөрі, бері, бұрын</b></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grammar-box mt-15" style="background:#FFF5F5; border-color:#FEB2B2;">
+                        <h4 style="color:#C53030;">Демеулік (Частицы)</h4>
+                        <p>Придают слову дополнительные смысловые оттенки.</p>
+                        <ul>
+                            <li>Сұраулық: <b>ма/ме, ба/бе, ше</b></li>
+                            <li>Күшейткіш: <b>ақ, ай, ау, да/де</b></li>
+                            <li>Шектеулік: <b>ғана/қана, тек</b></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ИНТЕРАКТИВНЫЕ ЗАДАНИЯ ПОВЫШЕННОЙ СЛОЖНОСТИ -->
+    <section class="section bg-light" id="exercises">
+        <div class="container">
+            <div class="section-title-wrap" data-aos="fade-up">
+                <h2>Практикалық Жаттығулар <span class="badge badge-orange">Машықтану</span></h2>
+                <p>Грамматика мен лексиканы тереңірек меңгеруге арналған кешенді тапсырмалар.</p>
+            </div>
+
+            <div class="exercise-cards complex-grid" data-aos="fade-up" data-aos-delay="200">
+                <!-- Упражнение 1 (Синтаксис - Құрмалас сөйлем түрін анықтау) -->
+                <div class="ex-card">
+                    <div class="ex-header bg-blue">
+                        <div class="ex-icon">👁️</div>
+                        <h3>1-тапсырма. Сөйлем түрін анықтаңыз</h3>
+                    </div>
+                    <div class="ex-body">
+                        <p>Берілген сөйлемдердің түрін белгілеңіз (Салалас, Сабақтас, Қарапайым (Жай сөйлем)).</p>
+
+                        <div class="choice-task">
+                            <p class="sentence-text">1. Күн бұлттанып, жаңбыр жауды.</p>
+                            <select id="sel1" class="custom-select">
+                                <option value="none">-- Таңдаңыз --</option>
+                                <option value="salalas">Салалас құрмалас</option>
+                                <option value="sabaktas">Сабақтас құрмалас</option>
+                                <option value="zhay">Жай сөйлем</option>
+                            </select>
+                        </div>
+
+                        <div class="choice-task">
+                            <p class="sentence-text">2. Мен сабаққа келгенде, қоңырау соғылып қойған екен.</p>
+                            <select id="sel2" class="custom-select">
+                                <option value="none">-- Таңдаңыз --</option>
+                                <option value="salalas">Салалас құрмалас</option>
+                                <option value="sabaktas">Сабақтас құрмалас</option>
+                                <option value="zhay">Жай сөйлем</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-blue mt-15" onclick="checkEx1()">Жауапты тексеру</button>
+                        <div id="res1" class="ex-result"></div>
+                    </div>
+                </div>
+
+                <!-- Упражнение 2 (Есімше жұрнақтары) -->
+                <div class="ex-card">
+                    <div class="ex-header bg-green">
+                        <div class="ex-icon">🧩</div>
+                        <h3>2-тапсырма. Тиісті жұрнақты қой</h3>
+                    </div>
+                    <div class="ex-body">
+                        <p>Есімше жұрнақтарын (ған/ген, қаты/етін, мақ/мек) дұрыс таңдап жазыңыз.</p>
+                        <div class="fill-sentence">
+                            Кеше оқыл<input type="text" id="fill1" class="fill-input" placeholder="..."> кітап өте қызық
+                            болды.
+                        </div>
+                        <div class="fill-sentence">
+                            Ертең келе<input type="text" id="fill2" class="fill-input" placeholder="..."> қонақтарға
+                            дастарқан жаямыз.
+                        </div>
+                        <div class="fill-sentence">
+                            Ол бұл жұмысты ертең бітір<input type="text" id="fill3" class="fill-input"
+                                placeholder="...">.
+                        </div>
+                        <button class="btn btn-green mt-15" onclick="checkEx2()">Жауапты тексеру</button>
+                        <div id="res2" class="ex-result"></div>
+                    </div>
+                </div>
+
+                <!-- Упражнение 3 (Сөйлем құрау - Күрделі) -->
+                <div class="ex-card full-width">
+                    <div class="ex-header bg-orange">
+                        <div class="ex-icon">🏗️</div>
+                        <h3>3-тапсырма. Күрделі сөйлем құрастыру (Синтаксис)</h3>
+                    </div>
+                    <div class="ex-body">
+                        <p>Сөздерді дұрыс ретпен орналастырып, <b>сабақтас құрмалас сөйлем</b> құрастырыңыз.
+                            <br><i>(Перевод: Если каждый человек будет беречь природу, экология улучшится.)</i>
+                        </p>
+                        <div class="drag-words" id="wordBank">
+                            <span class="drag-word" onclick="moveWord(this)">қорғаса,</span>
+                            <span class="drag-word" onclick="moveWord(this)">Әрбір</span>
+                            <span class="drag-word" onclick="moveWord(this)">экология</span>
+                            <span class="drag-word" onclick="moveWord(this)">адам</span>
+                            <span class="drag-word" onclick="moveWord(this)">жақсарады.</span>
+                            <span class="drag-word" onclick="moveWord(this)">табиғатты</span>
+                        </div>
+                        <div class="drop-zone" id="dropZone" onclick="returnWord()">
+                            <i>Жауапты осында құрастырыңыз...</i>
+                        </div>
+                        <button class="btn btn-orange mt-15" onclick="checkEx3()">Жауапты тексеру</button>
+                        <div id="res3" class="ex-result"></div>
+                    </div>
+                </div>
+
+                <!-- Упражнение 4 (Шылау) -->
+                <div class="ex-card full-width">
+                    <div class="ex-header" style="background:var(--text-dark);">
+                        <div class="ex-icon">⚖️</div>
+                        <h3>4-тапсырма. Ақиқат немесе Жалған</h3>
+                    </div>
+                    <div class="ex-body">
+                        <p>Тұжырымдардың дұрыс/бұрыс екенін белгілеңіз.</p>
+
+                        <div class="choice-task">
+                            <p class="sentence-text">1. «Өйткені, себебі, сондықтан» — бұл септеулік шылаулар.</p>
+                            <select id="tf1" class="custom-select">
+                                <option value="none">-- Таңдаңыз --</option>
+                                <option value="true">Ақиқат (Дұрыс)</option>
+                                <option value="false">Жалған (Қате)</option>
+                            </select>
+                        </div>
+                        <div class="choice-task">
+                            <p class="sentence-text">2. Аралас құрмалас сөйлем құрамында кемінде үш жай сөйлем болады.
+                            </p>
+                            <select id="tf2" class="custom-select">
+                                <option value="none">-- Таңдаңыз --</option>
+                                <option value="true">Ақиқат (Дұрыс)</option>
+                                <option value="false">Жалған (Қате)</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-blue mt-15" onclick="checkEx4()">Жауапты тексеру</button>
+                        <div id="res4" class="ex-result"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ВИКТОРИНА (Тест 10 вопросов) -->
+    <section class="section" id="quiz">
+        <div class="container">
+            <div class="quiz-container" data-aos="zoom-in" data-aos-duration="800">
+                <div class="quiz-header">
+                    <h2>ОЖСБ Форматындағы Тест 🎓</h2>
+                    <p>8-сынып материалдарын қамтитын 15 сұрақтан тұратын кешенді бақылау.</p>
+                </div>
+                <div id="quiz-start" class="quiz-box">
+                    <img src="quiz.png" alt="Тест иллюстрациясы"
+                        style="width: 220px; max-width: 100%; margin: 0 auto 20px; display: block;">
+                    <p class="quiz-info">Уақыт шектеусіз. Тек бір ғана дұрыс жауап бар.</p>
+                    <button class="btn btn-blue btn-large" onclick="startQuiz()">Бақылауды бастау</button>
+                </div>
+                <div id="quiz-question-box" class="quiz-box" style="display: none;">
+                    <div class="quiz-top-bar">
+                        <div class="quiz-progress-text"><span id="q-current">1</span> / 15 сұрақ</div>
+                        <div class="quiz-timer" id="quizTimer">⏱️ 10:00</div>
+                    </div>
+                    <div class="quiz-progress-bar-wrap">
+                        <div class="quiz-progress-bar" id="quizProgBar"></div>
+                    </div>
+                    <h3 id="question-text" class="question-title">Сұрақ мәтіні</h3>
+                    <div class="quiz-options" id="options-container"></div>
+                </div>
+                <div id="quiz-result-box" class="quiz-box" style="display: none;">
+                    <h2 class="result-title">Тест аяқталды!</h2>
+                    <div class="result-score"><span id="score-text">0</span> / 15</div>
+                    <p id="result-message" class="result-msg">Жарайсың!</p>
+                    <div class="result-details" id="result-details"></div>
+                    <div class="error-analysis" id="error-analysis" style="display: none;">
+                        <h3>Қатемен жұмыс (Талдау):</h3>
+                        <ul id="analysis-list" class="analysis-list"></ul>
+                    </div>
+                    <button class="btn btn-green mt-30" onclick="restartQuiz()">Тестті қайта тапсыру</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БАННЕР -->
+    <section class="banner-section">
+        <div class="container">
+            <div class="banner" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <div class="banner-content">
+                    <h2>Тіл – ұлттың жаны, халықтың үні!</h2>
+                    <p>Мемлекеттік тілді терең меңгеру арқылы сен өз еліңнің тарихын, мәдениетін және болашағын
+                        қолдайсың. Күн сайын оқы, дамы, биіктерді бағындыр!</p>
+                </div>
+                <img src="teacher.png" alt="Teacher" class="banner-teacher">
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="kazakh-border-bottom"></div>
+        <div class="container footer-content">
+            <div class="footer-logo"></div>
+            <p>Орыс мектептеріндегі 8-сынып оқушыларына арналған кешенді, күрделі әрі заманауи интерактивті оқу
+                платформасы.</p>
+            <div class="footer-icons">
+                <div class="icon-circle bg-green"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png"
+                        alt="Email"></div>
+                <div class="icon-circle bg-blue"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png"
+                        alt="Phone"></div>
+                <div class="icon-circle bg-orange"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"
+                        alt="Location"></div>
+            </div>
+            <p class="copyright"></p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 100 });</script>
+    <script src="script.js"></script>
+</body>
+
+</html>

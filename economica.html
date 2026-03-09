@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Экономика | Қазақ тілі 8-сынып</title>
+    <meta name="description"
+        content="Экономика тақырыбы бойынша Тыңдалым, Оқылым, Жазылым, Сөйлесім. Грамматикалық және лексикалық минимум." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .eco-hero {
+            background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 40%, #1D4ED8 80%, #1e3a8a 100%);
+            padding: 60px 0 50px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eco-hero::after {
+            content: '💰 📈 📊 🏦 🏢 💰';
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            font-size: 1.6rem;
+            opacity: 0.1;
+            letter-spacing: 20px;
+        }
+
+        .eco-hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 6px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .eco-hero h1 {
+            font-size: clamp(1.8rem, 4.5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .eco-hero h1 span {
+            color: #FCD34D;
+        }
+
+        .eco-hero p {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            max-width: 640px;
+            margin: 0 auto 28px;
+        }
+
+        .eco-hero-pills {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .hero-pill {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            transition: color 0.2s;
+        }
+
+        .back-btn:hover {
+            color: white;
+        }
+
+        .grammar-mini-section {
+            margin-bottom: 36px;
+        }
+
+        .grammar-mini-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+            color: #1E3A8A;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .grammar-mini-section h3 span {
+            background: #D97706;
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .grammar-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+
+        .grammar-card {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 18px;
+            border-left: 4px solid #1E40AF;
+        }
+
+        .grammar-card h4 {
+            font-size: 0.95rem;
+            color: #1E3A8A;
+            margin-bottom: 8px;
+        }
+
+        .grammar-card p,
+        .grammar-card li {
+            font-size: 0.9rem;
+            color: #334155;
+        }
+
+        .grammar-card ul {
+            padding-left: 16px;
+        }
+
+        .example-highlight {
+            background: #EFF6FF;
+            border-left: 4px solid #3B82F6;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .example-highlight b {
+            color: #1E40AF;
+        }
+
+        .vocab-mini-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 12px;
+        }
+
+        .vocab-mini-card {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 10px;
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .vocab-mini-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(30, 58, 138, 0.1);
+            border-color: #3B82F6;
+        }
+
+        .vocab-mini-card .kk {
+            font-weight: 800;
+            color: #1E3A8A;
+            font-size: 1rem;
+        }
+
+        .vocab-mini-card .ru {
+            font-size: 0.85rem;
+            color: #64748B;
+        }
+
+        .vocab-mini-card.flip {
+            background: #1E40AF;
+        }
+
+        .vocab-mini-card.flip .kk {
+            color: white;
+        }
+
+        .vocab-mini-card.flip .ru {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .active-nav {
+            color: #3B82F6 !important;
+            font-weight: 800 !important;
+        }
+
+        .page-section {
+            padding: 60px 0 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="kazakh-border-top"></div>
+
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <div class="logo">
+                <div class="logo-text"><strong></strong></div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Басты бет</a></li>
+                <li><a href="index.html#vocabulary">Сөздік</a></li>
+                <li><a href="index.html#reading">Оқылым</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle active-nav">Тақырыптар <i>▼</i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="ana-tili.html">Ана тілі</a></li>
+                        <li><a href="bukara.html">БАҚ</a></li>
+                        <li><a href="bilim.html">Білім&Денсаулық</a></li>
+                        <li><a href="economica.html" class="active-nav">Экономика</a></li>
+                        <li><a href="mereke.html">Мерекелер</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#grammar">Грамматика</a></li>
+                <li><a href="index.html#quiz">Тест</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-btn" aria-label="Түнгі режимді қосу">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="eco-hero">
+        <div class="container">
+            <a href="index.html" class="back-btn">← Басты бетке оралу</a>
+            <div class="eco-hero-badge">8-сынып | Қазақ тілі</div>
+            <h1>Экономика – <span>елдің тұтқасы</span></h1>
+            <p>Грамматикалық минимум, лексика және сөйлеу әрекетінің 4 түрін меңгеруге арналған кешенді интерактивті
+                тапсырмалар.</p>
+            <div class="eco-hero-pills">
+                <span class="hero-pill">📝 Грамматика</span>
+                <span class="hero-pill">📚 Лексика</span>
+                <span class="hero-pill">🎧 Тыңдалым</span>
+                <span class="hero-pill">📖 Оқылым</span>
+                <span class="hero-pill">✍️ Жазылым</span>
+                <span class="hero-pill">💬 Сөйлесім</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRAMMAR SECTION -->
+    <section style="background:#F8FAFC; padding: 60px 0 30px;">
+        <div class="container">
+            <div class="section-title-wrap" data-aos="fade-up">
+                <h2>Грамматикалық минимум <span class="badge badge-blue">Функционалды үлгі</span></h2>
+                <p>Экономика тақырыбына қатысты грамматикалық құрылымдар.</p>
+            </div>
+
+            <!-- 1. Тұрақты сөз тіркестері -->
+            <div class="grammar-mini-section" data-aos="fade-up">
+                <h3><span>1</span> Тұрақты сөз тіркестері (Экономика саласында)</h3>
+                <div class="grammar-cards">
+                    <div class="grammar-card">
+                        <h4>Анықтамасы</h4>
+                        <p>Тұрақты сөз тіркестері — мағынасы тұтас, құрамындағы сөздерді ауыстыруға болмайтын тіркестер.
+                        </p>
+                    </div>
+                    <div class="grammar-card">
+                        <h4>Экономикалық мағынада</h4>
+                        <ul>
+                            <li><b>Нарық заңы</b> — законы рынка</li>
+                            <li><b>Бәсекеге қабілетті</b> — конкурентоспособный</li>
+                            <li><b>Ат салысу</b> — вносить вклад</li>
+                            <li><b>Қол ұшын беру</b> — оказывать помощь</li>
+                        </ul>
+                    </div>
+                    <div class="grammar-card">
+                        <h4>Мысалдар</h4>
+                        <div class="example-highlight">
+                            <p>Қазақстан әлемдік нарықта <b>бәсекеге қабілетті</b> ел болуы тиіс.</p>
+                            <p>Ел экономикасын дамытуға әрбір азамат <b>ат салысуы</b> керек.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Шартты, себеп мәнді құрылымдар -->
+            <div class="grammar-mini-section" data-aos="fade-up">
+                <h3><span>2</span> Шартты және себеп мәнді құрылымдар</h3>
+                <div class="grammar-cards">
+                    <div class="grammar-card">
+                        <h4>Шартты рай (-са / -се)</h4>
+                        <p>Іс-әрекеттің орындалу шартын білдіреді.</p>
+                        <div class="example-highlight">
+                            Инвестиция <b>келсе</b>, экономика жақсарады.
+                        </div>
+                    </div>
+                    <div class="grammar-card">
+                        <h4>Себеп мәнді тіркестер</h4>
+                        <ul>
+                            <li><b>өйткені</b> — потому что</li>
+                            <li><b>сондықтан</b> — поэтому</li>
+                            <li><b>себебі</b> — причина в том, что</li>
+                        </ul>
+                    </div>
+                    <div class="grammar-card">
+                        <h4>Құрамдас сөйлемдегі мысал</h4>
+                        <div class="example-highlight">
+                            Экономика өсті, <b>сондықтан</b> халықтың әл-ауқаты артты.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VOCABULARY -->
+    <section style="padding: 50px 0; background: white;">
+        <div class="container">
+            <div class="section-title-wrap" data-aos="fade-up">
+                <h2>Лексикалық минимум <span class="badge">Экономика сөздігі</span></h2>
+                <p>Карточканы басып аударманы тексеріңіз.</p>
+            </div>
+            <div class="vocab-mini-grid" data-aos="fade-up" id="ecoVocabGrid"></div>
+        </div>
+    </section>
+
+    <!-- 4 SKILLS TABS -->
+    <section class="page-section">
+        <div class="container">
+            <div class="section-title-wrap" data-aos="fade-up">
+                <h2>Сөйлеу әрекетінің 4 түрі <span class="badge badge-orange">Интерактив</span></h2>
+                <p>Тапсырмаларды орындап, біліміңізді тексеріңіз.</p>
+            </div>
+
+            <div class="anat-tabs" data-aos="zoom-in">
+                <button class="anat-tab-btn active" onclick="openEcoTab('eco-tyndau', this)">🎧 Тыңдалым</button>
+                <button class="anat-tab-btn" onclick="openEcoTab('eco-okylu', this)">📖 Оқылым</button>
+                <button class="anat-tab-btn" onclick="openEcoTab('eco-zhazylym', this)">✍️ Жазылым</button>
+                <button class="anat-tab-btn" onclick="openEcoTab('eco-soilesim', this)">💬 Сөйлесім</button>
+            </div>
+
+            <div class="anat-content" data-aos="fade-up" data-aos-delay="100">
+
+                <!-- ТЫҢДАЛЫМ -->
+                <div id="eco-tyndau" class="anat-pane">
+                    <div class="anat-pane-inner">
+                        <div class="anat-intro">
+                            <div class="anat-intro-icon">🎧</div>
+                            <div>
+                                <h3>Тыңдалым: «Экономика»</h3>
+                                <p>Басым сөздерді оқып, сұрақтарға жауап беріңіз.</p>
+                            </div>
+                        </div>
+
+                        <div class="anat-audio-block">
+                            <div class="anat-audio-label">📌 Басым сөздер (тірек сөздер):</div>
+                            <div class="anat-keywords" style="margin-top:12px;">
+                                <span class="kw-badge" style="background:#1E3A8A;">ұлттық валюта</span>
+                                <span class="kw-badge" style="background:#1E3A8A;">нарықтық экономика</span>
+                                <span class="kw-badge" style="background:#1E3A8A;">сауда-саттық</span>
+                                <span class="kw-badge" style="background:#1E3A8A;">экспорт</span>
+                                <span class="kw-badge" style="background:#1E3A8A;">импорт</span>
+                                <span class="kw-badge" style="background:#1E3A8A;">ішкі өнім</span>
+                                <span class="kw-badge" style="background:#1E3A8A;">бюджет</span>
+                                <span class="kw-badge" style="background:#1E3A8A;">ресурс</span>
+                            </div>
+                        </div>
+
+                        <div
+                            style="background:#F1F5F9; border-radius:12px; padding:20px; margin:20px 0; border-left:4px solid #1E3A8A;">
+                            <h4 style="margin-bottom:10px; color:#1e3a8a;">📖 Мәтін: «Ел экономикасының қуаты»</h4>
+                            <p style="line-height:1.9; color:#1F2937;">Экономика — елдің дамуының кепілі. Қазақстан
+                                <b>нарықтық экономика</b> жолына түскеннен бері көптеген жетістіктерге жетті. Біздің
+                                елдің басты байлығы — табиғи ресурстар. Алайда қазіргі таңда шикізатқа ғана сенбей,
+                                <b>өндірісті</b> дамыту маңызды. Экспорт көлемін арттыру арқылы <b>ұлттық валютамыз</b>
+                                — теңгенің құнын сақтай аламыз.
+                            </p>
+                        </div>
+
+                        <div class="anat-questions">
+                            <h4>🎯 Тыңдалым бойынша сұрақтар:</h4>
+                            <div class="anat-q-item">
+                                <p><strong>1.</strong> Экономиканы неліктен «ел дамуының кепілі» дейді?</p>
+                                <textarea id="etq1" class="anat-textarea"
+                                    placeholder="Жауабыңызды жазыңыз..."></textarea>
+                            </div>
+                            <div class="anat-q-item">
+                                <p><strong>2.</strong> Қазақстанның басты байлығы не?</p>
+                                <textarea id="etq2" class="anat-textarea"
+                                    placeholder="Жаuабыңызды жазыңыз..."></textarea>
+                            </div>
+                            <div class="anat-q-item">
+                                <p><strong>3.</strong> Теңгенің құнын қалай нығайтуға болады?</p>
+                                <textarea id="etq3" class="anat-textarea"
+                                    placeholder="Жауабыңызды жазыңыз..."></textarea>
+                            </div>
+                            <button class="btn btn-blue mt-15" onclick="checkEcoTyndau()">Тексеру</button>
+                            <div id="etyndau-result" class="anat-result"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ОҚЫЛЫМ -->
+                <div id="eco-okylu" class="anat-pane" style="display:none;">
+                    <div class="anat-pane-inner">
+                        <div class="anat-intro">
+                            <div class="anat-intro-icon">📖</div>
+                            <div>
+                                <h3>Оқылым: «Қазақстан экономикасы»</h3>
+                                <p>Мәтінді мұқият оқып, азатжолдарды талдаңыз.</p>
+                            </div>
+                        </div>
+
+                        <div class="anat-text-block">
+                            <p>Қазақстан Орталық Азиядағы ең ірі экономика иесі. Тәуелсіздік жылдарында елге
+                                миллиардтаған доллар инвестиция тартылды. Бұл <b>өнеркәсіпті</b>, көлік инфрақұрылымын
+                                және ауыл шаруашылығын жаңартуға көмектесті. Қазіргі таңда Қазақстан Дүниежүзілік Сауда
+                                Ұйымына (ДСҰ) мүше.</p>
+                            <p>Ел экономикасының негізгі секторы — мұнай мен газ, сонымен қатар түсті металлургия мен
+                                бидай экспорты. Бірнеше жыл бұрын басталған <b>Индустрияландыру</b> бағдарламасы жаңа
+                                зауыттар мен фабрикалардың ашылуына негіз болды. Бұл отандық өнімнің үлесін арттыруда.
+                            </p>
+                            <p>Болашақ экономика — <b>цифрлық экономика</b> мен «жасыл» технологиялар. Қазақстан 2050
+                                жылға қарай әлемдегі ең дамыған 30 елдің қатарына кіруді мақсат етіп отыр. Ол үшін жас
+                                мамандардың білімі мен біліктілігі өте маңызды рөл атқарады.</p>
+                        </div>
+
+                        <div class="anat-vocab-explain">
+                            <h4>📚 Жаңа сөздер:</h4>
+                            <div class="vocab-explain-grid">
+                                <div class="ve-item"><span class="ve-word">инвестиция</span> — вложения</div>
+                                <div class="ve-item"><span class="ve-word">өнеркәсіп</span> — промышленность</div>
+                                <div class="ve-item"><span class="ve-word">инфрақұрылым</span> — инфраструктура</div>
+                                <div class="ve-item"><span class="ve-word">индустрияландыру</span> — индустриализация
+                                </div>
+                                <div class="ve-item"><span class="ve-word">отандық өнім</span> — отечественный продукт
+                                </div>
+                                <div class="ve-item"><span class="ve-word">біліктілік</span> — квалификация</div>
+                            </div>
+                        </div>
+
+                        <div class="anat-questions">
+                            <h4>📋 Азатжолмен жұмыс:</h4>
+                            <div class="anat-q-item">
+                                <p><strong>1-азатжол:</strong> Инвестиция тарту неге көмектесті?</p>
+                                <textarea id="eoq1" class="anat-textarea" placeholder="Жауапты жазыңыз..."></textarea>
+                            </div>
+                            <div class="anat-q-item">
+                                <p><strong>2-азатжол:</strong> Ел экономикасының негізгі секторларын атаңыз.</p>
+                                <textarea id="eoq2" class="anat-textarea" placeholder="Жауапты жазыңыз..."></textarea>
+                            </div>
+                            <div class="anat-q-item">
+                                <p><strong>3-азатжол:</strong> Болашақ экономиканың бағыты қандай?</p>
+                                <textarea id="eoq3" class="anat-textarea" placeholder="Жауапты жазыңыз..."></textarea>
+                            </div>
+                            <button class="btn btn-green mt-15" onclick="checkEcoOkylu()">Тексеру</button>
+                            <div id="eokylu-result" class="anat-result"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ЖАЗЫЛЫМ -->
+                <div id="eco-zhazylym" class="anat-pane" style="display:none;">
+                    <div class="anat-pane-inner">
+                        <div class="anat-intro">
+                            <div class="anat-intro-icon">✍️</div>
+                            <div>
+                                <h3>Жазылым: «Экономика»</h3>
+                                <p>Тілдік және коммуникативтік құзыретті дамыту тапсырмалары.</p>
+                            </div>
+                        </div>
+
+                        <div class="anat-writing-tasks">
+                            <div class="writing-task-card" style="border-left-color:#D97706;">
+                                <div class="wtc-num" style="color:#D97706;">01</div>
+                                <div class="wtc-body">
+                                    <h4>Шығарма жазу</h4>
+                                    <p>«Қазақстанның экономикалық болашағы» тақырыбына эссе жазыңыз (80–100 сөз).</p>
+                                    <textarea id="ezhaz1" class="anat-textarea tall"
+                                        placeholder="Эссеңізді осында бастаңыз..."></textarea>
+                                    <div class="word-counter">Сөздер: <span id="ezhaz1-count">0</span></div>
+                                </div>
+                            </div>
+
+                            <div class="writing-task-card" style="border-left-color:#1E3A8A;">
+                                <div class="wtc-num" style="color:#1E3A8A;">02</div>
+                                <div class="wtc-body">
+                                    <h4>Шартты рай қолдану</h4>
+                                    <p>Берілген етістіктерді шартты рай формасында қолданып, экономика тақырыбында
+                                        сөйлем құраңыз:</p>
+                                    <div class="given-words">өсу • даму • келу • арттыру • жұмыс істеу</div>
+                                    <textarea id="ezhaz2" class="anat-textarea"
+                                        placeholder="Мысалы: Экспорт артса, бюджет молаяды."></textarea>
+                                </div>
+                            </div>
+
+                            <div class="writing-task-card" style="border-left-color:#10B981;">
+                                <div class="wtc-num" style="color:#10B981;">03</div>
+                                <div class="wtc-body">
+                                    <h4>Лингвомәдениеттанымдық сөздік</h4>
+                                    <p>Терминдер мен олардың мағынасын сәйкестендіріңіз:</p>
+                                    <div class="proverb-fill">
+                                        <p>1. <b>Теңге</b> — <input type="text" class="proverb-input" id="term1"
+                                                placeholder="..."> (ұлттық валюта)</p>
+                                        <p>2. <b>Экспорт</b> — <input type="text" class="proverb-input" id="term2"
+                                                placeholder="..."> (сыртқа шығару)</p>
+                                        <p>3. <b>Нарық</b> — <input type="text" class="proverb-input" id="term3"
+                                                placeholder="..."> (базар/рынок)</p>
+                                    </div>
+                                    <button class="btn btn-orange mt-15" onclick="checkTerms()">Тексеру</button>
+                                    <div id="terms-result" class="anat-result"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СӨЙЛЕСІМ -->
+                <div id="eco-soilesim" class="anat-pane" style="display:none;">
+                    <div class="anat-pane-inner">
+                        <div class="anat-intro">
+                            <div class="anat-intro-icon">💬</div>
+                            <div>
+                                <h3>Сөйлесім: «Экономика»</h3>
+                                <p>Репликалармен жұмыс — диалог арқылы сөйлеу дағдысын шыңдау.</p>
+                            </div>
+                        </div>
+
+                        <div class="dialog-section">
+                            <h4>🎭 Диалог: «Нарық және баға»</h4>
+                            <div class="dialog-box">
+                                <div class="dialog-line student-a">
+                                    <div class="dialog-avatar">👨 Сатушы:</div>
+                                    <div class="dialog-text">— Мына өнімнің бағасы — 500 теңге. Нағыз отандық өнім!
+                                    </div>
+                                </div>
+                                <div class="dialog-line student-b">
+                                    <div class="dialog-avatar">👩 Сатып алушы:</div>
+                                    <div class="dialog-text">— Неге бағасы аздап өскен? Кеше 450 теңге еді ғой.</div>
+                                </div>
+                                <div class="dialog-line student-a">
+                                    <div class="dialog-avatar">👨 Сатушы:</div>
+                                    <div class="dialog-text">— Нарық заңы солай, шикізат бағасы көтерілсе, бізде де
+                                        өседі.</div>
+                                </div>
+                                <div class="dialog-line student-b">
+                                    <div class="dialog-avatar">👩 Сатып алушы:</div>
+                                    <div class="dialog-text">— Түсінікті. Сапасы жақсы болса, бағасына лайық.</div>
+                                </div>
+                            </div>
+
+                            <div class="soilesim-tasks">
+                                <h4>🗣️ Сөйлесім тапсырмалары:</h4>
+                                <div class="soilesim-task">
+                                    <div class="st-num">1</div>
+                                    <div>
+                                        <strong>Рөлдік ойын:</strong> Диалогты жалғастырып көріңіз.
+                                        <textarea id="esoi1" class="anat-textarea"
+                                            placeholder="Диалогтың жалғасын жазыңыз..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="soilesim-task">
+                                    <div class="st-num">2</div>
+                                    <div>
+                                        <strong>Реплика жұптастыру:</strong>
+                                        <div class="replica-match">
+                                            <div class="replica-col">
+                                                <div class="replica-item" id="er1" onclick="selEr('er1')">«Экономика не
+                                                    үшін керек?»</div>
+                                                <div class="replica-item" id="er2" onclick="selEr('er2')">«Отандық
+                                                    өнімді қалай қолдаймыз?»</div>
+                                                <div class="replica-item" id="er3" onclick="selEr('er3')">«Инвестицияның
+                                                    пайдасы қандай?»</div>
+                                            </div>
+                                            <div class="replica-col">
+                                                <div class="replica-answer" id="era1" onclick="matchEr('era1')">«Жаңа
+                                                    жұмыс орындарын ашады.»</div>
+                                                <div class="replica-answer" id="era2" onclick="matchEr('era2')">«Елдің
+                                                    әл-ауқатын көтеру үшін.»</div>
+                                                <div class="replica-answer" id="era3" onclick="matchEr('era3')">
+                                                    «Өзіміздің тауарларды сатып алу арқылы.»</div>
+                                            </div>
+                                        </div>
+                                        <div id="ereplica-result" class="anat-result"></div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-blue mt-15" onclick="checkEcoSoilesim()">Барлығын
+                                    тексеру</button>
+                                <div id="esoilesim-result" class="anat-result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="kazakh-border-bottom"></div>
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo"></div>
+            <p style="text-align:center; color:#64748B; font-size:0.9rem;">
+                <a href="index.html" style="color:#1E3A8A; font-weight:700;">← Басты бетке оралу</a>
+                &nbsp;|&nbsp;
+                <a href="bilim.html" style="color:#059669; font-weight:700;">Білім & Денсаулық →</a>
+            </p>
+            <p class="copyright">© 2026 Қазақ тілі оқу бағдарламасы бойынша.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 700, once: true });
+
+        // Dark mode
+        const themeBtn = document.getElementById('theme-toggle');
+        if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark'); themeBtn.textContent = '☀️'; }
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            const d = document.body.classList.contains('dark');
+            themeBtn.textContent = d ? '☀️' : '🌙';
+            localStorage.setItem('theme', d ? 'dark' : 'light');
+        });
+
+        // VOCAB
+        const ecoVocab = [
+            { kk: 'экономика', ru: 'экономика' },
+            { kk: 'нарық', ru: 'рынок' },
+            { kk: 'сауда-саттық', ru: 'торговля' },
+            { kk: 'экспорт', ru: 'экспорт (вывоз)' },
+            { kk: 'импорт', ru: 'импорт (ввоз)' },
+            { kk: 'бюджет', ru: 'бюджет' },
+            { kk: 'кіріс', ru: 'доход/приход' },
+            { kk: 'шығыс', ru: 'расход/уход' },
+            { kk: 'валюта', ru: 'валюта' },
+            { kk: 'теңге', ru: 'тенге' },
+            { kk: 'инвестиция', ru: 'инвестиция' },
+            { kk: 'өнеркәсіп', ru: 'промышленность' },
+            { kk: 'бәсекелестік', ru: 'конкуренция' },
+            { kk: 'баға', ru: 'цена' },
+            { kk: 'төлем', ru: 'оплата' },
+            { kk: 'қор', ru: 'фонд/запас' },
+            { kk: 'инфляция', ru: 'инфляция' },
+            { kk: 'пайда', ru: 'прибыль/польза' },
+            { kk: 'кәсіпкер', ru: 'предприниматель' },
+            { kk: 'өндіріс', ru: 'производство' }
+        ];
+        const grid = document.getElementById('ecoVocabGrid');
+        ecoVocab.forEach(w => {
+            const c = document.createElement('div');
+            c.className = 'vocab-mini-card';
+            c.innerHTML = `<div class="kk">${w.kk}</div><div class="ru">${w.ru}</div>`;
+            c.addEventListener('click', () => c.classList.toggle('flip'));
+            grid.appendChild(c);
+        });
+
+        function openEcoTab(id, btn) {
+            document.querySelectorAll('.anat-pane').forEach(p => p.style.display = 'none');
+            document.querySelectorAll('.anat-tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).style.display = 'block';
+            btn.classList.add('active');
+        }
+
+        function showRes(el, type, msg) {
+            el.textContent = msg;
+            el.className = `anat-result ${type} show`;
+        }
+
+        // Checks
+        function checkEcoTyndau() {
+            const r = document.getElementById('etyndau-result');
+            const q1 = document.getElementById('etq1').value.trim();
+            if (!q1) { showRes(r, 'warning', '⚠️ Сұрақтарға жауап беріңіз!'); return; }
+            showRes(r, 'success', '✅ Жарайсыз! Тыңдалым сұрақтары қабылданды.');
+        }
+
+        function checkEcoOkylu() {
+            const r = document.getElementById('eokylu-result');
+            const q1 = document.getElementById('eoq1').value.trim();
+            if (!q1) { showRes(r, 'warning', '⚠️ Мәтін бойынша жауап жазыңыз!'); return; }
+            showRes(r, 'success', '✅ Мәтінді мұқият оқығаныңыз көрініп тұр, рахмет!');
+        }
+
+        document.getElementById('ezhaz1').addEventListener('input', function () {
+            const words = this.value.trim().split(/\s+/).filter(w => w.length > 0);
+            document.getElementById('ezhaz1-count').textContent = words.length;
+        });
+
+        function checkTerms() {
+            const r = document.getElementById('terms-result');
+            const t1 = document.getElementById('term1').value.trim().toLowerCase();
+            const t2 = document.getElementById('term2').value.trim().toLowerCase();
+            let c = 0;
+            if (t1.includes('валюта')) c++;
+            if (t2.includes('шығару')) c++;
+            if (c === 2) showRes(r, 'success', '🏆 Барлық терминдер дұрыс баламасын тапты!');
+            else showRes(r, 'warning', '📝 Қайтадан көріңіз, терминдерді сәйкестендіріңіз.');
+        }
+
+        let selId = null;
+        function selEr(id) {
+            document.querySelectorAll('#eco-soilesim .replica-item').forEach(el => el.classList.remove('selected'));
+            selId = id;
+            document.getElementById(id).classList.add('selected');
+        }
+        const erMap = { 'er1': 'era2', 'er2': 'era3', 'er3': 'era1' };
+        const erMatches = {};
+        function matchEr(ansId) {
+            if (!selId) return;
+            erMatches[selId] = ansId;
+            document.getElementById(ansId).classList.add('matched');
+            document.getElementById(selId).classList.remove('selected');
+            selId = null;
+        }
+
+        function checkEcoSoilesim() {
+            const r = document.getElementById('esoilesim-result');
+            let pairs = 0;
+            Object.entries(erMatches).forEach(([q, a]) => { if (erMap[q] === a) pairs++; });
+            if (pairs === 3) showRes(r, 'success', '🏆 Сөйлесім тапсырмасы керемет орындалды!');
+            else showRes(r, 'warning', `📝 ${pairs}/3 жұп дұрыс. Тағы да көріңіз.`);
+        }
+    </script>
+</body>
+
+</html>

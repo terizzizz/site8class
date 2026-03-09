@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мерекелер | Қазақ тілі 8-сынып</title>
+    <meta name="description"
+        content="Мерекелер тақырыбы бойынша Тыңдалым, Оқылым, Жазылым, Сөйлесім. Грамматикалық және лексикалық минимум." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .mer-hero {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 40%, #B45309 80%, #92400E 100%);
+            padding: 60px 0 50px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mer-hero::after {
+            content: '🎈 🎈 🎇 🎊 🎁 ✨';
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            font-size: 1.6rem;
+            opacity: 0.1;
+            letter-spacing: 20px;
+        }
+
+        .mer-hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 6px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .mer-hero h1 {
+            font-size: clamp(1.8rem, 4.5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .mer-hero h1 span {
+            color: #FEF3C7;
+        }
+
+        .mer-hero p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            max-width: 640px;
+            margin: 0 auto 28px;
+        }
+
+        .mer-hero-pills {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .hero-pill {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            transition: color 0.2s;
+        }
+
+        .back-btn:hover {
+            color: white;
+        }
+
+        .grammar-mini-section {
+            margin-bottom: 36px;
+        }
+
+        .grammar-mini-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+            color: #92400E;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .grammar-mini-section h3 span {
+            background: #B45309;
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .grammar-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+
+        .grammar-card {
+            background: #FFFBEB;
+            border: 1px solid #FEF3C7;
+            border-radius: 12px;
+            padding: 18px;
+            border-left: 4px solid #D97706;
+        }
+
+        .grammar-card h4 {
+            font-size: 0.95rem;
+            color: #92400E;
+            margin-bottom: 8px;
+        }
+
+        .grammar-card p,
+        .grammar-card li {
+            font-size: 0.9rem;
+            color: #4B5563;
+        }
+
+        .grammar-card ul {
+            padding-left: 16px;
+        }
+
+        .example-highlight {
+            background: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .example-highlight b {
+            color: #92400E;
+        }
+
+        .vocab-mini-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 12px;
+        }
+
+        .vocab-mini-card {
+            background: white;
+            border: 1px solid #FEF3C7;
+            border-radius: 10px;
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .vocab-mini-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(217, 119, 6, 0.1);
+            border-color: #F59E0B;
+        }
+
+        .vocab-mini-card .kk {
+            font-weight: 800;
+            color: #92400E;
+            font-size: 1rem;
+        }
+
+        .vocab-mini-card .ru {
+            font-size: 0.85rem;
+            color: #6B7280;
+        }
+
+        .vocab-mini-card.flip {
+            background: #D97706;
+        }
+
+        .vocab-mini-card.flip .kk {
+            color: white;
+        }
+
+        .vocab-mini-card.flip .ru {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .active-nav {
+            color: #D97706 !important;
+            font-weight: 800 !important;
+        }
+
+        .page-section {
+            padding: 60px 0 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="kazakh-border-top"></div>
+
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <div class="logo">
+                <div class="logo-text"><strong></strong></div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Басты бет</a></li>
+                <li><a href="index.html#vocabulary">Сөздік</a></li>
+                <li><a href="index.html#reading">Оқылым</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle active-nav">Тақырыптар <i>▼</i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="ana-tili.html">Ана тілі</a></li>
+                        <li><a href="bukara.html">БАҚ</a></li>
+                        <li><a href="bilim.html">Білім&Денсаулық</a></li>
+                        <li><a href="economica.html">Экономика</a></li>
+                        <li><a href="mereke.html" class="active-nav">Мерекелер</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#grammar">Грамматика</a></li>
+                <li><a href="index.html#quiz">Тест</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-btn" aria-label="Түнгі режимді қосу">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="mer-hero">
+        <div class="container">
+            <a href="index.html" class="back-btn">← Басты бетке оралу</a>
+            <div class="mer-hero-badge">8-сынып | Қазақ тілі</div>
+            <h1>Мерекелер – <span>елдің айнасы</span></h1>
+            <p>Грамматикалық минимум, лексика және сөйлеу әрекетінің 4 түрін меңгеруге арналған кешенді интерактивті
+                тапсырмалар.</p>
+            <div class="mer-hero-pills">
+                <span class="hero-pill">📝 Грамматика</span>
+                <span class="hero-pill">📚 Лексика</span>
+                <span class="hero-pill">🎧 Тыңдалым</span>
+                <span class="hero-pill">📖 Оқылым</span>
+                <span class="hero-pill">✍️ Жазылым</span>
+                <span class="hero-pill">💬 Сөйлесім</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRAMMAR SECTION -->
+    <section style="background:#FFFBEB; padding: 60px 0 30px;">
+        <div class="container">
+            <div class="section-title-wrap" data-aos="fade-up">
+                <h2>Грамматикалық минимум <span class="badge badge-blue">Функционалды үлгі</span></h2>
+                <p>Мерекелер тақырыбына қатысты ережелер мен құрылымдар.</p>
+            </div>
+
+            <!-- 1. Сын есім -->
+            <div class="grammar-mini-section" data-aos="fade-up">
+                <h3><span>1</span> Сын есім және оның жұрнақтары</h3>
+                <div class="grammar-cards">
+                    <div class="grammar-card">
+                        <h4>Туынды сын есімдер</h4>
+                        <p>Зат есімнен немесе етістіктен жұрнақ арқылы жасалған сын есімдер.</p>
+                    </div>
+                    <div class="grammar-card">
+                        <h4>Негізгі жұрнақтар</h4>
+                        <ul>
+                            <li><b>-лы/-лі, -ды/-ді</b>: салтанат<b>ты</b>, мереке<b>лі</b></li>
+                            <li><b>-сыз/-сіз</b>: демалыс<b>сыз</b>, көңіл<b>сіз</b></li>
+                            <li><b>-ғы/-гі, -қы/-кі</b>: қыс<b>қы</b>, жаз<b>ғы</b>, кеш<b>кі</b></li>
+                            <li><b>-лық/-лік</b>: ұлт<b>тық</b>, халық<b>тық</b></li>
+                        </ul>
+                    </div>
+                    <div class="grammar-card">
+                        <h4>Мысалдар</h4>
+                        <div class="example-highlight">
+                            <p><b>Салтанатты</b> кеш өте қызықты өтті.</p>
+                            <p>Наурыз — <b>ұлттық</b> мереке.</p>
+                            <p><b>Кешкі</b> концерт сағат сегізде басталады.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Себеп және мақсат мәнді құрылымдар -->
+            <div class="grammar-mini-section" data-aos="fade-up">
+                <h3><span>2</span> Себеп және мақсат мәнді құрылымдар</h3>
+                <div class="grammar-cards">
+                    <div class="grammar-card">
+                        <h4>Себеп мәнді (Себебі, өйткені)</h4>
+                        <p>Іс-әрекеттің себебін түсіндіреді.</p>
+                        <div class="example-highlight">
+                            Біз қуаныштымыз, <b>себебі</b> бүгін мереке.
+                        </div>
+                    </div>
+                    <div class="grammar-card">
+                        <h4>Мақсат мәнді (Үшін, мақсатында)</h4>
+                        <p>Іс-әрекеттің мақсатын білдіреді.</p>
+                        <div class="example-highlight">
+                            Мерекеге дайындалу <b>үшін</b> дүкенге бардық.
+                        </div>
+                    </div>
+                    <div class="grammar-card">
+                        <h4>Жалғаулықтар мен шылаулар</h4>
+                        <ul>
+                            <li><b>сондықтан</b> — поэтому</li>
+                            <li><b>мақсатында</b> — с целью</li>
+                            <li><b>ниетімен</b> — с намерением</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VOCABULARY -->
+    <section style="padding: 50px 0; background: white;">
+        <div class="container">
+            <div class="section-title-wrap" data-aos="fade-up">
+                <h2>Лексикалық минимум <span class="badge">Мерекелер сөздігі</span></h2>
+                <p>Карточканы басып аударманы тексеріңіз.</p>
+            </div>
+            <div class="vocab-mini-grid" data-aos="fade-up" id="merVocabGrid"></div>
+        </div>
+    </section>
+
+    <!-- 4 SKILLS TABS -->
+    <section class="page-section">
+        <div class="container">
+            <div class="section-title-wrap" data-aos="fade-up">
+                <h2>Сөйлеу әрекетінің 4 түрі <span class="badge badge-orange">Интерактив</span></h2>
+                <p>Тыңдалым, Оқылым, Жазылым, Сөйлесім тапсырмаларын орындаңыз.</p>
+            </div>
+
+            <div class="anat-tabs" data-aos="zoom-in">
+                <button class="anat-tab-btn active" onclick="openMerTab('mer-tyndau', this)">🎧 Тыңдалым</button>
+                <button class="anat-tab-btn" onclick="openMerTab('mer-okylu', this)">📖 Оқылым</button>
+                <button class="anat-tab-btn" onclick="openMerTab('mer-zhazylym', this)">✍️ Жазылым</button>
+                <button class="anat-tab-btn" onclick="openMerTab('mer-soilesim', this)">💬 Сөйлесім</button>
+            </div>
+
+            <div class="anat-content" data-aos="fade-up" data-aos-delay="100">
+
+                <!-- ТЫҢДАЛЫМ -->
+                <div id="mer-tyndau" class="anat-pane">
+                    <div class="anat-pane-inner">
+                        <div class="anat-intro">
+                            <div class="anat-intro-icon">🎧</div>
+                            <div>
+                                <h3>Тыңдалым: «Мерекелер»</h3>
+                                <p>Басым сөздерді оқып, сұрақтарға жауап беріңіз.</p>
+                            </div>
+                        </div>
+
+                        <div class="anat-audio-block">
+                            <div class="anat-audio-label">📌 Басым сөздер:</div>
+                            <div class="anat-keywords" style="margin-top:12px;">
+                                <span class="kw-badge" style="background:#B45309;">мемлекеттік мереке</span>
+                                <span class="kw-badge" style="background:#B45309;">салт-дәстүр</span>
+                                <span class="kw-badge" style="background:#B45309;">айтулы күн</span>
+                                <span class="kw-badge" style="background:#B45309;">құттықтау</span>
+                                <span class="kw-badge" style="background:#B45309;">мерекелік дастарқан</span>
+                                <span class="kw-badge" style="background:#B45309;">ұлттық ойын</span>
+                                <span class="kw-badge" style="background:#B45309;">Наурыз көже</span>
+                                <span class="kw-badge" style="background:#B45309;">Тәуелсіздік күні</span>
+                            </div>
+                        </div>
+
+                        <div
+                            style="background:#FFFBEB; border-radius:12px; padding:20px; margin:20px 0; border-left:4px solid #F59E0B;">
+                            <h4 style="margin-bottom:10px; color:#92400E;">📖 Мәтін: «Мерекенің мәні»</h4>
+                            <p style="line-height:1.9; color:#4B5563;">Мереке — халықтың көңіл-күйін көтеретін, елді
+                                бірлікке шақыратын <b>айтулы күн</b>. Қазақстанда мемлекеттік және ұлттық мерекелер
+                                кеңінен атап өтіледі. Мысалы, <b>Наурыз</b> — жаңару мен жақсылықтың символы. Бұл күні
+                                адамдар бір-бірін <b>құттықтап</b>, жақсы тілектер айтады. Мерекелік шаралар мақсаты —
+                                салт-дәстүрді жаңғырту.</p>
+                        </div>
+
+                        <div class="anat-questions">
+                            <h4>🎯 Тыңдалым бойынша сұрақтар:</h4>
+                            <div class="anat-q-item">
+                                <p><strong>1.</strong> Мерекенің халық үшін маңызы қандай?</p>
+                                <textarea id="mtq1" class="anat-textarea" placeholder="Жауапты жазыңыз..."></textarea>
+                            </div>
+                            <div class="anat-q-item">
+                                <p><strong>2.</strong> Наурыз мерекесі ненің символы?</p>
+                                <textarea id="mtq2" class="anat-textarea" placeholder="Жауапты жазыңыз..."></textarea>
+                            </div>
+                            <div class="anat-q-item">
+                                <p><strong>3.</strong> Мерекелік шаралар қандай мақсатта өткізіледі?</p>
+                                <textarea id="mtq3" class="anat-textarea" placeholder="Жауапты жазыңыз..."></textarea>
+                            </div>
+                            <button class="btn btn-blue mt-15" onclick="checkMerTyndau()">Тексеру</button>
+                            <div id="mtyndau-result" class="anat-result"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ОҚЫЛЫМ -->
+                <div id="mer-okylu" class="anat-pane" style="display:none;">
+                    <div class="anat-pane-inner">
+                        <div class="anat-intro">
+                            <div class="anat-intro-icon">📖</div>
+                            <div>
+                                <h3>Оқылым: «Мерекелер»</h3>
+                                <p>Мәтінді оқып, тапсырмаларды орындаңыз.</p>
+                            </div>
+                        </div>
+
+                        <div class="anat-text-block">
+                            <p>Қазақстанда жыл сайын көптеген <b>мерекелер</b> атап өтіледі. Олардың ішінде ең маңыздысы
+                                — <b>Тәуелсіздік күні</b>. Бұл күн — егемендігіміздің символы. Сондай-ақ, 25 қазанда
+                                Республика күнін атап өтеміз. Бұл күндері қалаларда <b>салтанатты</b> шерулер мен
+                                концерттер ұйымдастырылады.</p>
+                            <p>Наурыз мейрамы — <b>ұлттық</b> нақыштағы ең көне мереке. Күн мен түн теңелгенде халық ақ
+                                мол болсын деп тілейді. Дастарқанға <b>Наурыз көже</b> қойылып, ұлттық ойындар (көкпар,
+                                бәйге, аударыспақ) ойналады. Бұл дәстүрлер жастарды отансүйгіштікке тәрбиелеу мақсатында
+                                өткізіледі.</p>
+                            <p>Жаңа жыл, Халықаралық әйелдер күні, Жеңіс күні — бұл мерекелер бүкіл халықтық сипатқа ие.
+                                Әр мерекенің өзіндік тарихы мен <b>мәдени</b> мәні бар. Мерекелерді тойлау арқылы біз
+                                тарихымызды құрметтейміз.</p>
+                        </div>
+
+                        <div class="anat-vocab-explain">
+                            <h4>📚 Жаңа сөздер:</h4>
+                            <div class="vocab-explain-grid">
+                                <div class="ve-item"><span class="ve-word">салтанатты</span> — торжественный</div>
+                                <div class="ve-item"><span class="ve-word">шеру</span> — парад/шествие</div>
+                                <div class="ve-item"><span class="ve-word">егемендік</span> — суверенитет</div>
+                                <div class="ve-item"><span class="ve-word">нақыш</span> — колорит/узор</div>
+                                <div class="ve-item"><span class="ve-word">отансүйгіштік</span> — патриотизм</div>
+                                <div class="ve-item"><span class="ve-word">құрметтеу</span> — уважать</div>
+                            </div>
+                        </div>
+
+                        <div class="anat-questions">
+                            <h4>📋 Азатжолмен жұмыс:</h4>
+                            <div class="anat-q-item">
+                                <p><strong>1-азатжол:</strong> Тәуелсіздік күнінің маңызы неде?</p>
+                                <textarea id="moq1" class="anat-textarea" placeholder="Жауап..."></textarea>
+                            </div>
+                            <div class="anat-q-item">
+                                <p><strong>2-азатжол:</strong> Наурыз күні қандай ұлттық ойындар өткізіледі?</p>
+                                <textarea id="moq2" class="anat-textarea" placeholder="Жауап..."></textarea>
+                            </div>
+                            <div class="anat-q-item">
+                                <p><strong>3-азатжол:</strong> Мерекелер арқылы біз не нәрсені құрметтейміз?</p>
+                                <textarea id="moq3" class="anat-textarea" placeholder="Жауап..."></textarea>
+                            </div>
+                            <button class="btn btn-green mt-15" onclick="checkMerOkylu()">Тексеру</button>
+                            <div id="mokylu-result" class="anat-result"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ЖАЗЫЛЫМ -->
+                <div id="mer-zhazylym" class="anat-pane" style="display:none;">
+                    <div class="anat-pane-inner">
+                        <div class="anat-intro">
+                            <div class="anat-intro-icon">✍️</div>
+                            <div>
+                                <h3>Жазылым: «Мерекелер»</h3>
+                                <p>Сауатты жазу және тілдік біліктілікті дамыту.</p>
+                            </div>
+                        </div>
+
+                        <div class="anat-writing-tasks">
+                            <div class="writing-task-card" style="border-left-color:#B45309;">
+                                <div class="wtc-num" style="color:#B45309;">01</div>
+                                <div class="wtc-body">
+                                    <h4>Шығарма жазу</h4>
+                                    <p>«Менің сүйікті мерекем» тақырыбына 80–100 сөзден тұратын эссе жазыңыз.</p>
+                                    <textarea id="mzhaz1" class="anat-textarea tall"
+                                        placeholder="Мереке туралы жазыңыз..."></textarea>
+                                    <div class="word-counter">Сөздер: <span id="mzhaz1-count">0</span></div>
+                                </div>
+                            </div>
+
+                            <div class="writing-task-card" style="border-left-color:#D97706;">
+                                <div class="wtc-num" style="color:#D97706;">02</div>
+                                <div class="wtc-body">
+                                    <h4>Сын есім жасау</h4>
+                                    <p>Берілген зат есімдерге тиісті жұрнақтарды жалғап, туынды сын есім жасаңыз:</p>
+                                    <div class="proverb-fill">
+                                        <p>Көңіл + <input type="text" class="proverb-input" id="adj1" placeholder="...">
+                                            (көңілді)</p>
+                                        <p>Мереке + <input type="text" class="proverb-input" id="adj2"
+                                                placeholder="..."> (мерекелік)</p>
+                                        <p>Халық + <input type="text" class="proverb-input" id="adj3" placeholder="...">
+                                            (халықтық)</p>
+                                        <p>Сыйлық + <input type="text" class="proverb-input" id="adj4"
+                                                placeholder="..."> (сыйлықсыз)</p>
+                                    </div>
+                                    <button class="btn btn-orange mt-15" onclick="checkAdj()">Тексеру</button>
+                                    <div id="adj-result" class="anat-result"></div>
+                                </div>
+                            </div>
+
+                            <div class="writing-task-card" style="border-left-color:#F59E0B;">
+                                <div class="wtc-num" style="color:#F59E0B;">03</div>
+                                <div class="wtc-body">
+                                    <h4>Лингвомәдениеттанымдық сөздік</h4>
+                                    <p>Ортақ сөздердің мағынасын ашыңыз:</p>
+                                    <div class="proverb-fill">
+                                        <p><b>Мерейтой</b> — <input type="text" class="proverb-input" id="lin1"
+                                                placeholder="..."> (юбилей)</p>
+                                        <p><b>Салтанат</b> — <input type="text" class="proverb-input" id="lin2"
+                                                placeholder="..."> (торжество)</p>
+                                        <p><b>Шеру</b> — <input type="text" class="proverb-input" id="lin3"
+                                                placeholder="..."> (парад)</p>
+                                    </div>
+                                    <button class="btn btn-blue mt-15" onclick="checkLin()">Тексеру</button>
+                                    <div id="lin-result" class="anat-result"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СӨЙЛЕСІМ -->
+                <div id="mer-soilesim" class="anat-pane" style="display:none;">
+                    <div class="anat-pane-inner">
+                        <div class="anat-intro">
+                            <div class="anat-intro-icon">💬</div>
+                            <div>
+                                <h3>Сөйлесім: «Мерекелер»</h3>
+                                <p>Сөйлеу дағдысын жетілдіру және репликалармен жұмыс.</p>
+                            </div>
+                        </div>
+
+                        <div class="dialog-section">
+                            <h4>🎭 Диалог: «Досыңды құттықтау»</h4>
+                            <div class="dialog-box">
+                                <div class="dialog-line student-a">
+                                    <div class="dialog-avatar">👦 Әли:</div>
+                                    <div class="dialog-text">— Сәлем, Арман! Мерекең құтты болсын!</div>
+                                </div>
+                                <div class="dialog-line student-b">
+                                    <div class="dialog-avatar">👦 Арман:</div>
+                                    <div class="dialog-text">— Рахмет, Әли! Сені де мерекемен құттықтаймын. Бүгін кешке
+                                        концертке барасың ба?</div>
+                                </div>
+                                <div class="dialog-line student-a">
+                                    <div class="dialog-avatar">👦 Әли:</div>
+                                    <div class="dialog-text">— Иә, барғым келеді. Өйткені бүгін атақты әншілер өнер
+                                        көрсетеді екен.</div>
+                                </div>
+                                <div class="dialog-line student-b">
+                                    <div class="dialog-avatar">👦 Арман:</div>
+                                    <div class="dialog-text">— Онда сағат алтыда кездесейік.</div>
+                                </div>
+                            </div>
+
+                            <div class="soilesim-tasks">
+                                <h4>🗣️ Сөйлесім тапсырмалары:</h4>
+                                <div class="soilesim-task">
+                                    <div class="st-num">1</div>
+                                    <div>
+                                        <strong>Құттықтау:</strong> Досыңызға мерекелік құттықтау хат жазыңыз (3-4
+                                        сөйлем).
+                                        <textarea id="msoi1" class="anat-textarea"
+                                            placeholder="Қымбатты досым..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="soilesim-task">
+                                    <div class="st-num">2</div>
+                                    <div>
+                                        <strong>Реплика жұптастыру:</strong>
+                                        <div class="replica-match">
+                                            <div class="replica-col">
+                                                <div class="replica-item" id="mr1" onclick="selMr('mr1')">«Бүгін неге
+                                                    мектепке бармаймыз?»</div>
+                                                <div class="replica-item" id="mr2" onclick="selMr('mr2')">«Сыйлық алу
+                                                    үшін қайда барасың?»</div>
+                                                <div class="replica-item" id="mr3" onclick="selMr('mr3')">«Наурыз көже
+                                                    неден жасалады?»</div>
+                                            </div>
+                                            <div class="replica-col">
+                                                <div class="replica-answer" id="mra1" onclick="matchMr('mra1')">
+                                                    «Сыйлықтар дүкеніне барамын.»</div>
+                                                <div class="replica-answer" id="mra2" onclick="matchMr('mra2')">«Өйткені
+                                                    бүгін — демалыс күні.»</div>
+                                                <div class="replica-answer" id="mra3" onclick="matchMr('mra3')">«Жеті
+                                                    түрлі дәмнен жасалады.»</div>
+                                            </div>
+                                        </div>
+                                        <div id="mreplica-result" class="anat-result"></div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-blue mt-15" onclick="checkMerSoilesim()">Тексеру</button>
+                                <div id="msoilesim-result" class="anat-result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="kazakh-border-bottom"></div>
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo"></div>
+            <p style="text-align:center; color:#6B7280; font-size:0.9rem;">
+                <a href="index.html" style="color:#D97706; font-weight:700;">← Басты бетке оралу</a>
+                &nbsp;|&nbsp;
+                <a href="economica.html" style="color:#1E3A8A; font-weight:700;">Экономика →</a>
+            </p>
+            <p class="copyright">© 2026 Қазақ тілі оқу бағдарламасы бойынша.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 700, once: true });
+
+        // Dark mode
+        const themeBtn = document.getElementById('theme-toggle');
+        if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark'); themeBtn.textContent = '☀️'; }
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            const d = document.body.classList.contains('dark');
+            themeBtn.textContent = d ? '☀️' : '🌙';
+            localStorage.setItem('theme', d ? 'dark' : 'light');
+        });
+
+        // VOCAB
+        const merVocab = [
+            { kk: 'мереке', ru: 'праздник' },
+            { kk: 'мейрам', ru: 'торжество/праздник' },
+            { kk: 'құттықтау', ru: 'поздравление' },
+            { kk: 'сыйлық', ru: 'подарок' },
+            { kk: 'дастарқан', ru: 'скатерть/праздничный стол' },
+            { kk: 'салтанат', ru: 'торжество' },
+            { kk: 'тәуелсіздік', ru: 'независимость' },
+            { kk: 'жаңа жыл', ru: 'новый год' },
+            { kk: 'наурыз', ru: 'наурыз' },
+            { kk: 'демалыс', ru: 'отдых/выходной' },
+            { kk: 'шашу', ru: 'традиция осыпания сладостями' },
+            { kk: 'бата', ru: 'благословение' },
+            { kk: 'тілек', ru: 'пожелание' },
+            { kk: 'қонақ', ru: 'гость' },
+            { kk: 'шеру', ru: 'парад' },
+            { kk: 'мерейтой', ru: 'юбилей' },
+            { kk: 'айтулы күн', ru: 'знаменательная дата' },
+            { kk: 'өнеге', ru: 'пример/образец' },
+            { kk: 'концерт', ru: 'концерт' },
+            { kk: 'көрме', ru: 'выставка' }
+        ];
+        const grid = document.getElementById('merVocabGrid');
+        merVocab.forEach(w => {
+            const c = document.createElement('div');
+            c.className = 'vocab-mini-card';
+            c.innerHTML = `<div class="kk">${w.kk}</div><div class="ru">${w.ru}</div>`;
+            c.addEventListener('click', () => c.classList.toggle('flip'));
+            grid.appendChild(c);
+        });
+
+        function openMerTab(id, btn) {
+            document.querySelectorAll('.anat-pane').forEach(p => p.style.display = 'none');
+            document.querySelectorAll('.anat-tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).style.display = 'block';
+            btn.classList.add('active');
+        }
+
+        function showRes(el, type, msg) {
+            el.textContent = msg;
+            el.className = `anat-result ${type} show`;
+        }
+
+        // Checks
+        function checkMerTyndau() {
+            const r = document.getElementById('mtyndau-result');
+            const q1 = document.getElementById('mtq1').value.trim();
+            if (!q1) { showRes(r, 'warning', '⚠️ Сұрақтарға жауап беріңіз!'); return; }
+            showRes(r, 'success', '✅ Керемет! Жауаптар қабылданды.');
+        }
+
+        function checkMerOkylu() {
+            const r = document.getElementById('mokylu-result');
+            const q1 = document.getElementById('moq1').value.trim();
+            if (!q1) { showRes(r, 'warning', '⚠️ Тапсырманы орындаңыз!'); return; }
+            showRes(r, 'success', '✅ Оқылым тапсырмасы сәтті аяқталды!');
+        }
+
+        document.getElementById('mzhaz1').addEventListener('input', function () {
+            const words = this.value.trim().split(/\s+/).filter(w => w.length > 0);
+            document.getElementById('mzhaz1-count').textContent = words.length;
+        });
+
+        function checkAdj() {
+            const r = document.getElementById('adj-result');
+            const a1 = document.getElementById('adj1').value.trim().toLowerCase();
+            const a2 = document.getElementById('adj2').value.trim().toLowerCase();
+            if (a1.includes('ді') || a2.includes('лік')) showRes(r, 'success', '🏆 Грамматикалық тапсырма дұрыс!');
+            else showRes(r, 'warning', '📝 Жұрнақтарды дұрыс жалғаңыз.');
+        }
+
+        function checkLin() {
+            const r = document.getElementById('lin-result');
+            const l1 = document.getElementById('lin1').value.trim();
+            if (!l1) { showRes(r, 'warning', '📝 Бос орынды толтырыңыз.'); return; }
+            showRes(r, 'success', '✅ Сөздікпен жұмыс сәтті!');
+        }
+
+        let selId = null;
+        function selMr(id) {
+            document.querySelectorAll('#mer-soilesim .replica-item').forEach(el => el.classList.remove('selected'));
+            selId = id;
+            document.getElementById(id).classList.add('selected');
+        }
+        const mrMap = { 'mr1': 'mra2', 'mr2': 'mra1', 'mr3': 'mra3' };
+        const mrMatches = {};
+        function matchMr(ansId) {
+            if (!selId) return;
+            mrMatches[selId] = ansId;
+            document.getElementById(ansId).classList.add('matched');
+            document.getElementById(selId).classList.remove('selected');
+            selId = null;
+        }
+
+        function checkMerSoilesim() {
+            const r = document.getElementById('msoilesim-result');
+            let pairs = 0;
+            Object.entries(mrMatches).forEach(([q, a]) => { if (mrMap[q] === a) pairs++; });
+            if (pairs === 3) showRes(r, 'success', '🏆 Репликалар дұрыс жұптастырылды!');
+            else showRes(r, 'warning', `📝 ${pairs}/3 дұрыс. Талпынып көріңіз.`);
+        }
+    </script>
+</body>
+
+</html>
