@@ -739,3 +739,245 @@ function showAnatResult(el, type, msg) {
   el.textContent = msg;
   el.className = `anat-result ${type} show`;
 }
+
+/* =============================================
+   AI ASSISTANT LOGIC (LOCAL)
+   ============================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    const chatToggleBtn = document.getElementById('ai-chat-toggle');
+    const chatWindow = document.getElementById('ai-chat-window');
+    const closeBtn = document.getElementById('ai-close-btn');
+    
+    const chatBody = document.getElementById('ai-chat-body');
+    const userInput = document.getElementById('ai-user-input');
+    const sendBtn = document.getElementById('ai-send-btn');
+    
+    // Toggle Chat Window
+    if (chatToggleBtn && chatWindow) {
+        chatToggleBtn.addEventListener('click', () => {
+            chatWindow.classList.toggle('hidden');
+            if (!chatWindow.classList.contains('hidden')) {
+                userInput.focus();
+            }
+        });
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            chatWindow.classList.add('hidden');
+        });
+    }
+
+    // Тілдік модель үшін жергілікті база (Без сыртқы API)
+    const localKnowledge = [
+        { keys: ['сәлем', 'аман', 'қайырлы', 'здравствуй', 'привет'], ans: 'Сәлеметсіз бе! Мен бұл сайттың виртуалды көмекшісімін. Сізге немен көмектесе аламын?' },
+        { keys: ['қалайсың', 'жағдай'], ans: 'Рақмет, менде бәрі тамаша! Сіздің оқу үлгеріміңіз қалай болып жатыр?' },
+        { keys: ['атыңыз', 'кімсің', 'имя'], ans: 'Менің атым — Ainalaiyn AI. Мен 8-сыныпқа арналған қазақ тілі оқулығының көмекшісімін.' },
+        { keys: ['салалас'], ans: 'Салалас құрмалас сөйлем — құрамындағы жай сөйлемдері бір-біріне бағынбай, тең дәрежеде (және, бірақ, өйткені) байланысатын құрмалас сөйлем.' },
+        { keys: ['сабақтас'], ans: 'Сабақтас құрмалас сөйлем — бір жай сөйлемі екіншісіне бағына байланысқан сөйлем (мысалы: Күн жылынса, қар ериді).' },
+        { keys: ['аралас', 'аралас құрмалас'], ans: 'Аралас құрмалас сөйлем — кемінде үш жай сөйлемнен тұратын, салалас және сабақтас байланысы араласып келетін құрмалас сөйлем.' },
+        { keys: ['есімше'], ans: 'Есімше – етістіктің шақтық мағына білдіретін, әрі етістік, әрі сын есім қызметін атқаратын түрі. Жұрнақтары: -ған/-ген, -қан/-кен, -атын/-етін, -мақ/-мек.' },
+        { keys: ['көсемше'], ans: 'Көсемше – етістіктің шартты, қимыл-сындық мағына білдіретін түрі. Жұрнақтары: -а/-е/-й, -ып/-іп/-п, -ғалы/-гелі.' },
+        { keys: ['төл сөз'], ans: 'Төл сөз — ешбір өзгеріссіз берілген бөтен сөз. Жалпы сызбалар: А: – Т. немесе «Т», – а.' },
+        { keys: ['шылау'], ans: 'Шылаулар – толық лексикалық мағынасы жоқ көмекші сөздер. Олар үшке бөлінеді: жалғаулық, септеулік, демеулік.' },
+        { keys: ['алаш', 'қайраткер'], ans: 'Алаш қозғалысы – ХХ ғасырдың басында қазақ елінің тәуелсіздігі мен білімін дамыту мақсатында құрылған ұлттық қозғалыс. Қайраткерлері: Ә. Бөкейханов, А. Байтұрсынұлы, М. Дулатұлы т.б.' },
+        { keys: ['арал', 'экология'], ans: 'Арал теңізі мәселесі — судың тартылуынан туындаған үлкен экологиялық апат. Ол бүкіл аймаққа кері әсерін тигізуде.' },
+        { keys: ['жасанды интеллект', 'интеллект', 'ai'], ans: 'Жасанды интеллект (AI) — адам сияқты ойлап, күрделі мәселелерді шеше алатын технологиялық жүйе. Сайтта оның болашағы жайлы мәтін бар.' },
+        { keys: ['құндылық'], ans: 'Ұлттық құндылықтарға біздің тіліміз, салт-дәстүрлеріміз мен тарихымыз жатады. Оларды сақтау әр адамның парызы.' },
+        { keys: ['интернет', 'тәуелділік'], ans: 'Интернетке тәуелділік — адамның виртуалды әлемге беріліп, шынайы өмірден алыстауы. Ғаламторды дұрыс мақсатта қолданған жөн.' },
+        { keys: ['сөздік', 'аударма', 'лексика'], ans: 'Сайтта "Тақырыптық сөздік" бөлімі бар. Белгілі бір сөздердің мағынасын немесе аудармасын үйрену үшін сол бөлімге өтіңіз.' },
+        { keys: ['тест', 'бақылау', 'ожсб', 'экзамен'], ans: 'Тест тапсырғыңыз келе ме? Жоғарыдағы "Тест" бөліміне өтіп, 15 сұрақтан тұратын ОЖСБ форматындағы бақылауды өте аласыз.' },
+        { keys: ['тапсырма', 'ойын', 'сұрақ бер', 'задача', 'интерактив'], ans: '__TASK__' },
+        { keys: ['рақмет', 'спасибо'], ans: 'Оқасы жоқ! Тағы сұрақтарыңыз болса, қоя беріңіз.' }
+    ];
+
+    // Send Message
+    function sendMessage() {
+        const text = userInput.value.trim();
+        if (!text) return;
+
+        // Add user message to UI
+        addUserMessage(text);
+        userInput.value = '';
+
+        // Add typing indicator
+        const typingId = 'typing-' + Date.now();
+        addTypingIndicator(typingId);
+
+        // Scroll to bottom
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        // Process thinking
+        setTimeout(() => {
+            const reply = generateAIResponse(text);
+            removeTypingIndicator(typingId);
+            if (reply === '__TASK__') {
+                addBotTask();
+            } else {
+                addBotMessage(reply);
+            }
+        }, 600);
+    }
+
+    if (sendBtn) sendBtn.addEventListener('click', sendMessage);
+    if (userInput) {
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    }
+
+    function addUserMessage(text) {
+        const div = document.createElement('div');
+        div.className = 'ai-message ai-user';
+        div.innerHTML = `<div class="msg-content">${escapeHTML(text)}</div>`;
+        chatBody.appendChild(div);
+    }
+
+    function addBotMessage(text) {
+        const div = document.createElement('div');
+        div.className = 'ai-message ai-bot';
+        
+        let formattedText = escapeHTML(text).replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+        formattedText = formattedText.replace(/\n/g, '<br>');
+
+        div.innerHTML = `<div class="msg-content">${formattedText}</div>`;
+        chatBody.appendChild(div);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function addTypingIndicator(id) {
+        const div = document.createElement('div');
+        div.className = 'ai-message ai-bot';
+        div.id = id;
+        div.innerHTML = `
+            <div class="msg-content">
+                <div class="typing-indicator">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>`;
+        chatBody.appendChild(div);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function removeTypingIndicator(id) {
+        const el = document.getElementById(id);
+        if (el) el.remove();
+    }
+
+    const botTasks = [
+        {
+            q: 'Кішігірім тапсырма! Сөйлемнің түрін анықтаңыз: «Күн жылынып, адамдар далаға шықты.»',
+            options: ['Салалас', 'Сабақтас', 'Жай сөйлем'],
+            ans: 0,
+            successMsg: 'Дұрыс! Бұл салалас құрмалас сөйлем.',
+            errorMsg: 'Қате. Бұл құрмалас сөйлем, өйткені екі грамматикалық негіз бар (Күн жылынып, адамдар шықты). Олар бір-біріне бағынбай байланысқан.'
+        },
+        {
+            q: 'Есімшенің жұрнағын табыңыз:',
+            options: ['-ып, -іп', '-ған, -ген', '-а, -е'],
+            ans: 1,
+            successMsg: 'Өте жақсы! "-ған, -ген" — өткен шақ есімшенің жұрнақтары.',
+            errorMsg: 'Қате. -ып/-іп, -а/-е дегендер көсемше жұрнақтары. Есімшенің жұрнақтары: -ған/-ген, -қан/-кен.'
+        },
+        {
+            q: 'Төл сөз қандай тыныс белгісімен беріледі?',
+            options: ['Тырнақша («»)', 'Жақша ()', 'Тек нүкте'],
+            ans: 0,
+            successMsg: 'Керемет! Төл сөз өзгеріссіз тырнақша ішінде немесе сызықша арқылы жазылады.',
+            errorMsg: 'Бұрыс жауап. Төл сөз міндетті түрде тырнақшаның ішіне (немесе жаңа жолдан сызықшамен) жазылады.'
+        },
+        {
+            q: 'Мақалды жалғастырыңыз: "Өзге тілдің бәрін біл, ..."',
+            options: ['Өз тіліңді құрметте', 'Өз тіліңді ұмытпа', 'Өзгеріп кетпе'],
+            ans: 0,
+            successMsg: 'Тамаша! Қадыр Мырза Әлінің танымал өлең жолы.',
+            errorMsg: 'Қате. Дұрыс жауап: "Өз тіліңді құрметте".'
+        }
+    ];
+
+    function addBotTask() {
+        const task = botTasks[Math.floor(Math.random() * botTasks.length)];
+        const div = document.createElement('div');
+        div.className = 'ai-message ai-bot';
+        
+        let html = `<div class="msg-content task-content" style="width: 100%;">
+            <p style="margin-bottom: 10px;"><strong>${task.q}</strong></p>
+            <div class="task-options">`;
+        
+        task.options.forEach((opt, index) => {
+            html += `<button class="ai-task-btn" data-correct="${index === task.ans}">${opt}</button>`;
+        });
+        
+        html += `</div></div>`;
+        div.innerHTML = html;
+        chatBody.appendChild(div);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        const currentButtons = div.querySelectorAll('.ai-task-btn');
+        currentButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                currentButtons.forEach(b => b.disabled = true);
+                const isCorrect = this.getAttribute('data-correct') === 'true';
+                
+                if (isCorrect) {
+                    this.style.background = '#48BB78';
+                    this.style.color = 'white';
+                    this.style.borderColor = '#48BB78';
+                    setTimeout(() => addBotMessage("✅ " + task.successMsg), 600);
+                } else {
+                    this.style.background = '#F56565';
+                    this.style.color = 'white';
+                    this.style.borderColor = '#F56565';
+                    currentButtons.forEach(b => {
+                        if(b.getAttribute('data-correct') === 'true') {
+                            b.style.background = '#48BB78';
+                            b.style.color = 'white';
+                            b.style.borderColor = '#48BB78';
+                        }
+                    });
+                    setTimeout(() => addBotMessage("❌ " + task.errorMsg), 600);
+                }
+            });
+        });
+    }
+
+    function escapeHTML(str) {
+        return str.replace(/[&<>'"]/g, 
+            tag => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                "'": '&#39;',
+                '"': '&quot;'
+            }[tag] || tag)
+        );
+    }
+
+    function generateAIResponse(userText) {
+        const query = userText.toLowerCase().trim();
+        
+        let bestMatch = '';
+        let maxScore = 0;
+
+        for (let item of localKnowledge) {
+            let score = 0;
+            for (let word of item.keys) {
+                if (query.includes(word)) {
+                    score++;
+                }
+            }
+            if (score > maxScore) {
+                maxScore = score;
+                bestMatch = item.ans;
+            }
+        }
+
+        if (maxScore > 0) {
+            return bestMatch;
+        }
+
+        return 'Кешіріңіз, мен бұл сұрақты толық түсінбедім. Қазақ тілінің грамматикасы (мысалы, есімше, салалас сөйлем) немесе сайттағы мәтіндер туралы сұрап көресіз бе?';
+    }
+});

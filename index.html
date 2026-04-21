@@ -813,6 +813,36 @@
         </div>
     </footer>
 
+    <!-- AI ASSISTANT WIDGET -->
+    <div class="ai-chat-widget">
+        <button id="ai-chat-toggle" class="ai-chat-btn" aria-label="AI Көмекшіні ашу">
+            <span class="ai-icon">✨</span>
+        </button>
+        
+        <div id="ai-chat-window" class="ai-chat-window hidden">
+            <div class="ai-chat-header">
+                <div>
+                    <span class="ai-header-icon">🤖</span>
+                    <h3>Ainalaiyn AI</h3>
+                    <p>Қазақ тілі көмекшісі</p>
+                </div>
+                <button id="ai-close-btn" class="ai-action-btn" title="Жабу">✕</button>
+            </div>
+            
+            <div id="ai-chat-body" class="ai-chat-body">
+                <div class="ai-message ai-bot">
+                    <div class="msg-content">Сәлеметсіз бе! Мен сіздің виртуалды көмекшіңізбін. Қазақ тілін үйренуге, сөздерді аударуға немесе ережелерді түсіндіруге көмектесе аламын. Сізге қалай көмектесе аламын?</div>
+                </div>
+            </div>
+            
+            <div class="ai-chat-input">
+                <input type="text" id="ai-user-input" placeholder="Сұрағыңызды жазыңыз..." autocomplete="off">
+                <button id="ai-send-btn">➔</button>
+            </div>
+        </div>
+
+    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 100 });</script>
     <script src="script.js"></script>
